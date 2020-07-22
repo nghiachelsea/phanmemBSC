@@ -14,7 +14,7 @@
 <body>
 	<?php $error_message = ""; ?>
 	<center>
-		<div class="easyui-window" data-options="top:80, width:550, height:310,cls:'c6', title:'Login Form',iconCls:'icon-logck', maximizable:false, minimizable:false, resizable:false, draggable:false,closable:false,collapsible:false">
+		<div class="easyui-window" data-options="top:80, width:550, height:300,cls:'c6', title:'Login Form',iconCls:'icon-logck', maximizable:false, minimizable:false, resizable:false, draggable:false,closable:false,collapsible:false">
 			
 		
 		<div class="easyui-layout" data-options="fit:true" >
