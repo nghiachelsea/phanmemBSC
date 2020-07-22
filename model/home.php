@@ -13,10 +13,12 @@ session_start();
 	<meta name="keywords" content="jquery,ui,easy,easyui,web">
 	<meta name="description" content="easyui help you build your web page easily!">
 	<title>Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
-	<link rel="stylesheet" type="text/css" href="themes/icon.css">
-	<script type="text/javascript" src="jquery.min.js"></script>
-	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	 <link rel="stylesheet" type="text/css" href="../lib/themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../lib/themes/icon.css">
+  <link rel="stylesheet" type="text/css" href="../lib/themes/color.css">
+  <link rel="stylesheet" type="text/css" href="../lib/demo/demo.css">
+  <script type="text/javascript" src="../lib/jquery.min.js"></script>
+  <script type="text/javascript" src="../lib/jquery.easyui.min.js"></script>
 </head>
 <body>
 	

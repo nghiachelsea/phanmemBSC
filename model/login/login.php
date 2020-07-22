@@ -4,17 +4,17 @@
 <head>
 	<meta charset="utf-8">
 	<title>Login Form</title>
-	<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
-	<link rel="stylesheet" type="text/css" href="themes/icon.css">
-	<link rel="stylesheet" type="text/css" href="themes/color.css">
-	<link rel="stylesheet" type="text/css" href="demo/demo.css">
-	<script type="text/javascript" src="jquery.min.js"></script>
-	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../lib/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../lib/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../lib/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../lib/demo/demo.css">
+	<script type="text/javascript" src="../../lib/jquery.min.js"></script>
+	<script type="text/javascript" src="../../lib/jquery.easyui.min.js"></script>
 </head>
 <body>
 	<?php $error_message = ""; ?>
 	<center>
-		<div class="easyui-window" data-options="top:80, width:550, height:300,cls:'c6', title:'Login Form',iconCls:'icon-logck', maximizable:false, minimizable:false, resizable:false, draggable:false,closable:false,collapsible:false">
+		<div class="easyui-window" data-options="top:80, width:550, height:310,cls:'c6', title:'Login Form',iconCls:'icon-logck', maximizable:false, minimizable:false, resizable:false, draggable:false,closable:false,collapsible:false">
 			
 		
 		<div class="easyui-layout" data-options="fit:true" >
@@ -25,7 +25,7 @@
 			inline;
 			text-align:center; 
 			vertical-align:middle;">
-				<img src="bg-01.jpg" width="100%" height="98%">
+				<img src="../../lib/images/bg-01.jpg" width="100%" height="98%">
 			</div>
 			<div data-options= "region:'center', split: false" style="padding: 20px">
 				<form name = "loginform" method="post">
@@ -56,7 +56,7 @@
 
 <?php
 
-	include("config.php");
+	include("../config/config.php");
 	if (isset($_POST['login'])) {
 		if (!empty($_POST['username']) && !empty($_POST['password'])){
 			$username = $_POST['username'];

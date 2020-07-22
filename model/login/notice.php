@@ -5,12 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Change password</title>
-    <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="themes/icon.css">
-    <script type="text/javascript" src="jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="themes/color.css">
-    <script type="text/javascript" src="jquery.easyui.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="demo/demo.css">
+ 	<link rel="stylesheet" type="text/css" href="../../lib/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../lib/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../../lib/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="../../lib/demo/demo.css">
+	<script type="text/javascript" src="../../lib/jquery.min.js"></script>
+	<script type="text/javascript" src="../../lib/jquery.easyui.min.js"></script>
 <body>
 
 <div class="easyui-dialog" style="width:450px;height:200px;"
@@ -21,7 +21,7 @@
 		</div>
 		<div id="bb">
 			<a href="changePass.php" class="easyui-linkbutton" data-options= "iconCls:'icon-ok'">YES</a>
-			<a href="home.php" class="easyui-linkbutton" data-options= "iconCls:'icon-cancel'">NO</a>
+			<a href="../home.php" class="easyui-linkbutton" data-options= "iconCls:'icon-cancel'">NO</a>
 	</div>
     
 </body>

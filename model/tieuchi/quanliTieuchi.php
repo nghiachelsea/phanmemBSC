@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Quản lí danh sách trạm</title>
-    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/color.css">
-    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/demo/demo.css">
-    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
-    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../lib/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/themes/color.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/demo/demo.css">
+    <script type="text/javascript" src="../../lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../../lib/jquery.easyui.min.js"></script>
 </head>
 <body>
     <center><h2>Quản lí danh sách trạm</h2></center>
