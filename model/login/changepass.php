@@ -50,7 +50,7 @@
             $result = mysqli_query($con,$sql);
             $num = mysqli_num_rows($result);
             if ($result === TRUE) {
-                header('location:../home.php');
+                header('location:home.php');
             } else {
               return false;
             }

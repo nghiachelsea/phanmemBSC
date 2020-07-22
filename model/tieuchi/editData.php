@@ -2,6 +2,7 @@
 include("../config/config.php");
 $con = mysqli_connect(_HOST_NAME, _USER_NAME,_PASSWORD) or die("Database could not connect.");
 mysqli_select_db($con,_DB_NAME) or die("Could not select database.");
+
 $response = array( 
     'status' => 0, 
     'msg' => 'Some problems occurred, please try again.' 
@@ -17,14 +18,18 @@ if(!empty($_REQUEST['maTieuchi']) && !empty($_REQUEST['maTN_TTVT']) && !empty( $
     $mucdiemtrucnTTDHTT = $_REQUEST['mucdiemtrucnTTDHTT'];
     $mucdiemtruttTTDHTT = $_REQUEST['mucdiemtruttTTDHTT'];
      
-   
-    $sql = "INSERT INTO tieuchi(maTieuchi,maTN_TTVT,maTN_TTDHTT,tenTieuchi, chitietTieuchi, mucdiemtrucnTTVT, mucdiemtruttTTVT, mucdiemtrucnTTDHTT, mucdiemtruttTTDHTT) VALUES ('$maTieuchi','$maTN_TTVT','$maTN_TTDHTT','$tenTieuchi', '$chitietTieuchi', '$mucdiemtrucnTTVT', '$mucdiemtruttTTVT', '$mucdiemtrucnTTDHTT','$mucdiemtruttTTDHTT')";
-    $insert = mysqli_query($con,$sql);
-    
      
-    if($insert){ 
-        $response['status'] = 1; 
-        $response['msg'] = 'Data has been added successfully!'; 
+    if(!empty($_REQUEST['maTieuchi'])){ 
+        $maTieuchi = intval($_REQUEST['maTieuchi']); 
+          
+         
+        $sql = "UPDATE tieuchi SET maTN_TTVT='$maTN_TTVT', maTN_TTDHTT='$maTN_TTDHTT', tenTieuchi='$tenTieuchi', chitietTieuchi='$chitietTieuchi', mucdiemtrucnTTVT='$mucdiemtrucnTTVT',mucdiemtruttTTVT='$mucdiemtruttTTVT',mucdiemtrucnTTDHTT='$mucdiemtrucnTTDHTT',mucdiemtruttTTDHTT='$mucdiemtruttTTDHTT' WHERE maTieuchi = $maTieuchi"; 
+        $update = mysqli_query($con, $sql); 
+         
+        if($update){ 
+            $response['status'] = 1; 
+            $response['msg'] = 'Data has been updated successfully!'; 
+        } 
     } 
 }else{ 
     $response['msg'] = 'Please fill all the mandatory fields.'; 

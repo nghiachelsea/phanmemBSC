@@ -2,7 +2,6 @@
 session_start();
 
 
-
 ?>
 
 <!DOCTYPE>
@@ -23,7 +22,7 @@ session_start();
 <body>
 	
 	<div class="easyui-tabs" style="width:'90%';height:550px">
-		<div title="Hồ sơ cá nhân" style="padding:10px">
+		    <div title="Hồ sơ cá nhân" style="padding:10px">
         	<div title="Đổi mật khẩu" style="padding:10px">
         	
       	</div>
@@ -32,7 +31,9 @@ session_start();
         	<div class="easyui-tabs" style="width:'90%';height:490px">
         		<div title="Quản lý người dùng" style="padding:10px"> </div>
         		<div title="Quản lý nhà trạm" style="padding:10px"> </div>
-        		<div title="Quản lý tiêu chí" style="padding:10px"> </div>
+        		<div href = "tieuchi/quanliTieuchi.php" title="Quản lý tiêu chí" style="padding:10px">
+               
+             </div>
         		<div title="Quản lý kì phiếu" style="padding:10px"> </div>
         	</div>
       	</div>

@@ -29,4 +29,5 @@ while($row = mysqli_fetch_assoc($result)){
 } 
 $response["rows"] = $tieuchi; 
  
-echo json_encode($response);
+echo json_encode($response);	
+?>

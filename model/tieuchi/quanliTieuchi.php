@@ -13,10 +13,10 @@
     <script type="text/javascript" src="../../lib/jquery.easyui.min.js"></script>
 </head>
 <body>
-    <center><h2>Quản lí danh sách trạm</h2></center>
+    <center><h2>Quản lý tiêu chí</h2></center>
     
     
-    <center><table id="dg" title="Users Management" class="easyui-datagrid" url="getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
+    <center><table id="dg" title="Quản lý tiêu chí" class="easyui-datagrid" url="tieuchi/getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
     <thead>
         <tr>
                 <th field="maTieuchi"> Mã tiêu chí</th>
@@ -37,9 +37,9 @@
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
     </div>
     <div id="tb2" style="">
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()"> THÊM TIÊU CHÍ</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">SỬA TIÊU CHÍ</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">XÓA TIÊU CHÍ</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newTC()"> THÊM TIÊU CHÍ</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editTC()">SỬA TIÊU CHÍ</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyTC()">XÓA TIÊU CHÍ</a>
     </div>
 </div>
     
@@ -50,10 +50,10 @@
                 <input type="text" class="easyui-textbox" data-options="label:'Mã tiêu chí',labelPosition:'top' ,prompt:'maTieuchi', height:60" style="width: 100%" id="maTieuchi" name="maTieuchi">
             </div>
             <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã TN TTVT',labelPosition:'top' ,prompt:'maTrachnhiemTTVT', height:60" style="width: 100%" id="maTN_TTVT" name="maTrachnhiemTTVT">
+                <input type="text" class="easyui-textbox" data-options="label:'Mã TN TTVT',labelPosition:'top' ,prompt:'maTrachnhiemTTVT', height:60" style="width: 100%" id="maTN_TTVT" name="maTN_TTVT">
             </div>
             <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã TN TTDHTT',labelPosition:'top' ,prompt:'maTrachnhiemTTDHTT', height:60" style="width: 100%" id="maTN_TTDHTT" name="maTrachnhiemTTDHTT">
+                <input type="text" class="easyui-textbox" data-options="label:'Mã TN TTDHTT',labelPosition:'top' ,prompt:'maTrachnhiemTTDHTT', height:60" style="width: 100%" id="maTN_TTDHTT" name="maTN_TTDHTT">
             </div>
             <div style="margin-bottom:20px">
                 <input type="text" class="easyui-textbox" data-options="label:'Tên tiêu chí',labelPosition:'top' ,prompt:'tenTieuchi', height:60" style="width: 100%" id="tenTieuchi" name="tenTieuchi">
@@ -62,21 +62,21 @@
                 <input type="text" class="easyui-textbox" data-options="label:'Chi tiết tiêu chí',labelPosition:'top' ,prompt:'chitietTieuchi', height:60" style="width: 100%" id="chitietTieuchi" name="chitietTieuchi">
             </div>
             <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm CN TTVT',labelPosition:'top' ,prompt:'mucdiemcnTTVT', height:60" style="width: 100%" id="mucdiemtrucnTTVT" name="mucdiemcnTTVT">
+                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm CN TTVT',labelPosition:'top' ,prompt:'mucdiemcnTTVT', height:60" style="width: 100%" id="mucdiemtrucnTTVT" name="mucdiemtrucnTTVT">
             </div>
             <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm TT TTVT',labelPosition:'top' ,prompt:'mucdiemttTTVT', height:60" style="width: 100%" id="mucdiemtruttTTVT" name="mucdiemttTTVT">
+                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm TT TTVT',labelPosition:'top' ,prompt:'mucdiemttTTVT', height:60" style="width: 100%" id="mucdiemtruttTTVT" name="mucdiemtruttTTVT">
             </div>
             <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm CN TTDHTT',labelPosition:'top' ,prompt:'mucdiemcnTTDHTT', height:60" style="width: 100%" id="mucdiemtrucnTTDHTT" name="mucdiemcnTTDHTT">
+                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm CN TTDHTT',labelPosition:'top' ,prompt:'mucdiemcnTTDHTT', height:60" style="width: 100%" id="mucdiemtrucnTTDHTT" name="mucdiemtrucnTTDHTT">
             </div>
             <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm TT TTDHTT',labelPosition:'top' ,prompt:'mucdiemttTTDHTT', height:60" style="width: 100%" id="mucdiemtruttTTDHTT" name="mucdiemttTTDHTT">
+                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm TT TTDHTT',labelPosition:'top' ,prompt:'mucdiemttTTDHTT', height:60" style="width: 100%" id="mucdiemtruttTTDHTT" name="mucdiemtruttTTDHTT">
             </div>
         </form>
     </div>
     <div id="dlg-buttons">
-        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveTC()" style="width:90px">Save</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
     </div>
    <script type="text/javascript">
@@ -87,20 +87,20 @@ function doSearch() {
 }
         
 var url;
-function newUser() {
-    $('#dlg').dialog('open').dialog('center').dialog('setTitle','New User');
+function newTC() {
+    $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
     $('#fm').form('clear');
     url = 'addData.php';
 }
-function  editUser (){
+function  editTC (){
     var row = $('#dg').datagrid('getSelected');
     if (row){
-        $('#dlg').dialog('open').dialog('center').dialog('setTitle','Edit User');
+        $('#dlg').dialog('open').dialog('center').dialog('setTitle','Cập nhật tiêu chí');
         $('#fm').form('load',row);
         url = 'editData.php?id='+row.id;
     }
 }
-function  saveUser () {
+function  saveTC () {
     $('#fm').form('submit',{
         url: url,
         onSubmit: function(){
@@ -120,10 +120,10 @@ function  saveUser () {
         }
     });
 }
-function destroyUser(){
+function destroyTC(){
     var row = $('#dg').datagrid('getSelected');
     if (row){
-        $.messager.confirm('Confirm','Are you sure you want to delete this user?',function(r){
+        $.messager.confirm('Confirm','Bạn có chắc chắn muốn xóa tiêu chí này?',function(r){
             if (r){
                 $.post('deleteData.php', {id:row.id}, function(response){
                     if(response.status == 1){
@@ -143,3 +143,5 @@ function destroyUser(){
 
 </body>
 </html>
+
+
