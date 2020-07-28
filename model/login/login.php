@@ -14,7 +14,7 @@
 <body>
 	<?php $error_message = ""; ?>
 	<center>
-		<div class="easyui-window" data-options="top:80, width:550, height:310,cls:'c6', title:'Login Form',iconCls:'icon-logck', maximizable:false, minimizable:false, resizable:false, draggable:false,closable:false,collapsible:false">
+		<div class="easyui-window" data-options="top:80, width:550, height:300,cls:'c6', title:'Login Form',iconCls:'icon-logck', maximizable:false, minimizable:false, resizable:false, draggable:false,closable:false,collapsible:false">
 			
 		
 		<div class="easyui-layout" data-options="fit:true" >
@@ -64,32 +64,26 @@
 			echo $username." | ". $password;
 			$con = mysqli_connect(_HOST_NAME, _USER_NAME,_PASSWORD) or die("Database could not connect.");
 			mysqli_select_db($con,_DB_NAME) or die("Could not select database.");
-			$sql = "select * from nguoidung where taiKhoan = '$username' && matKhau = '$password' ";
+			$sql = "call validation('$username', '$password') ";
 			$result = mysqli_query($con,$sql);
 			$num = mysqli_num_rows($result);
 			 if ($num > 0){
 
-
-			 	
-			 	$sql1 = "select * from nguoidung where matKhau = 'admin' ";
-				$result = mysqli_query($con,$sql1);
-				$num = mysqli_num_rows($result);
-				 if ($num > 0){
-
-
-			 	header('location:notice.php');
-
-			 }
-
-			 }else{
-			 	header('location:login.php');
-			 }
-		}
-		else{
+			 	$row = mysqli_fetch_assoc($result);
+			 	session_start();
+			 	$_SESSION['maND'] = $row['maND'];
+			 	echo $_SESSION['maND'];
+			 	header('location:../home.php');
+			 
+			}
+			else{
+				return false;
+			}
+			# code...
+		}else{
 			return false;
 		}
-		# code...
-	}else{
+		}else{
 		return false;
 	}
 

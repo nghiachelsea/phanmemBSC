@@ -1,4 +1,4 @@
- <?php
+<?php
 // To Vu Ca - B1606870 
 // Include the database config file 
 include("../config/config.php");
@@ -15,19 +15,19 @@ $offset = ($page-1)*$rows;
  
 $result = array(); 
  
-$whereSQL = "maTieuchi LIKE '$searchTerm%' OR maTN_TTVT LIKE '$searchTerm%' OR maTN_TTDHTT LIKE '$searchTerm%' OR tenTieuchi LIKE '$searchTerm%' OR chitietTieuchi LIKE '$searchTerm%' OR mucdiemtrucnTTVT LIKE '$searchTerm%'  OR mucdiemtruttTTVT LIKE '$searchTerm%'  OR mucdiemtrucnTTDHTT LIKE '$searchTerm%'  OR mucdiemtruttTTDHTT LIKE '$searchTerm%'"; 
-$sql = "SELECT COUNT(*) FROM tieuchi WHERE $whereSQL";
+$whereSQL = "maKyphieu LIKE '$searchTerm%' OR maND LIKE '$searchTerm%' OR tenKyphieu LIKE '$searchTerm%' OR ngayBatdau LIKE '$searchTerm%' OR ngayKetthuc LIKE '$searchTerm%' OR thang LIKE '$searchTerm%'  OR ghichu LIKE '$searchTerm%'"; 
+$sql = "SELECT COUNT(*) FROM kyphieu WHERE $whereSQL";
 $result =  mysqli_query($con,$sql); 
 $row = mysqli_fetch_row($result);
 $response["total"] = $row[0]; 
-$sql1 = "SELECT * FROM tieuchi WHERE $whereSQL ORDER BY maTieuchi DESC LIMIT $offset,$rows";
+$sql1 = "SELECT * FROM kyphieu WHERE $whereSQL ORDER BY maKyphieu DESC LIMIT $offset,$rows";
 $result = mysqli_query($con,$sql1);
  
-$tieuchi = array(); 
+$kyphieu = array(); 
 while($row = mysqli_fetch_assoc($result)){ 
-    array_push($tieuchi, $row); 
+    array_push($kyphieu, $row); 
 } 
-$response["rows"] = $tieuchi; 
+$response["rows"] = $kyphieu; 
  
 echo json_encode($response);	
 ?>
