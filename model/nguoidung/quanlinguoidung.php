@@ -15,7 +15,7 @@
     <center><h2>Quản lí danh sách người dùng</h2></center>
     
     
-    <center><table id="dg" title="Users Management" class="easyui-datagrid" url="getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%'">
+    <center><table id="dg" title="Users Management" class="easyui-datagrid" url="nguoidung/getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%'">
     <thead>
         <tr>
                 <th field="maND"> Mã Người Dùng</th>
@@ -77,14 +77,14 @@ var url;
 function newUser(){
     $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
     $('#fm').form('clear');
-    url = 'addData.php';
+    url = 'nguoidung/addData.php';
 }
 function editUser(){
     var row = $('#dg').datagrid('getSelected');
     if (row){
         $('#dlg').dialog('open').dialog('center').dialog('setTitle','Sửa tiêu chí');
         $('#fm').form('load',row);
-        url = 'editData.php?maND='+row.maND;
+        url = 'nguoidung/editData.php?maND='+row.maND;
     }
 }
 function saveUser(){
@@ -112,7 +112,7 @@ function destroyUser(){
     if (row){
         $.messager.confirm('Confirm','Are you sure you want to delete this user?',function(r){
             if (r){
-                $.post('deleteData.php', {maND:row.maND}, function(response){
+                $.post('nguoidung/deleteData.php', {maND:row.maND}, function(response){
                     if(response.status == 1){
                         $('#dg').datagrid('reload');
                     }else{
