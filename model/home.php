@@ -32,12 +32,17 @@ echo "Your id: ".$_SESSION['maND'];
       	</div>
         <div title="Quản lý" style="padding:10px">
         	<div class="easyui-tabs" style="width:'90%';height:490px">
+
         		<div title="Quản lý người dùng" style="padding:10px"> </div>
-        		<div title="Quản lý nhà trạm" style="padding:10px"> </div>
-        		<div href = "tieuchi/quanliTieuchi.php" title="Quản lý tiêu chí" style="padding:10px">
-               
-             </div>
-        		<div title="Quản lý kì phiếu" style="padding:10px"> </div>
+
+            <div href = "tieuchi/quanliTieuchi.php" title="Quản lý tiêu chí" style="padding:10px"></div>
+
+            <div href = "donvi/index.php" title="Quản lý đơn vị" style="padding:10px"> </div>
+
+        		<div href = "tram/quanlitram.php" title="Quản lý nhà trạm" style="padding:10px"> </div>
+        		
+        		<div href = "kyphieu/quanlikyphieu.php" title="Quản lý kì phiếu" style="padding:10px"> </div>
+            
         	</div>
       	</div>
       	 <div title="Thống kê" style="padding:10px">
@@ -47,7 +52,7 @@ echo "Your id: ".$_SESSION['maND'];
         		<div title="Thống kê theo trưởng trạm" style="padding:10px"> </div>
         		<div title="Thống kê theo số điểm" style="padding:10px"> </div>
         	</div>
-      	</div>
+      	</div title="Thống kê" style="padding:10px">
         <a href = "logout.php" style="padding:10px">
             Logout
         </a>

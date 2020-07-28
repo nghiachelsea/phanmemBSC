@@ -1,4 +1,7 @@
 
+
+
+
 <!DOCTYPE html>
 <!-- // To Vu Ca - B1606870 -->
 <html>
@@ -16,7 +19,7 @@
     <center><h2>Quản lý tiêu chí</h2></center>
     
     
-    <center><table id="dg" title="Quản lý tiêu chí" class="easyui-datagrid" url="tieuchi/getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
+    <center><table id="dg" title="Quản lý tiêu chí" class="easyui-datagrid" url="tieuchi/getData.php" toolbar="#toolbarTC" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
     <thead>
         <tr>
                 <th field="maTieuchi"> Mã tiêu chí</th>
@@ -31,12 +34,12 @@
             </tr>
         </thead>
     </table></center>
-    <div id="toolbar">
+    <div id="toolbarTC">
     <div id="tb">
         <input id="term" placeholder="Type keywords...">
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
     </div>
-    <div id="tb2" style="">
+    <div id="tb" style="">
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newTC()"> THÊM TIÊU CHÍ</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editTC()">SỬA TIÊU CHÍ</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyTC()">XÓA TIÊU CHÍ</a>

@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <!-- // To Vu Ca - B1606870 -->
 <html>
@@ -15,7 +19,7 @@
     <center><h2>Quản lí danh sách trạm</h2></center>
     
     
-    <center><table id="dg" title="Users Management" class="easyui-datagrid" url="getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
+    <center><table id="dg" title="Users Management" class="easyui-datagrid" url="tram/getData.php" toolbar="#toolbarTr" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
     <thead>
         <tr>
                 <th field="maTram"> Mã Trạm</th>
@@ -30,7 +34,7 @@
             </tr>
         </thead>
     </table></center>
-    <div id="toolbar">
+    <div id="toolbarTr">
     <div id="tb">
         <input id="term" placeholder="Type keywords...">
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
@@ -89,14 +93,14 @@ var url;
 function newUser(){
     $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
     $('#fm').form('clear');
-    url = 'addData.php';
+    url = 'tram/addData.php';
 }
 function editUser(){
     var row = $('#dg').datagrid('getSelected');
     if (row){
         $('#dlg').dialog('open').dialog('center').dialog('setTitle','Sửa tiêu chí');
         $('#fm').form('load',row);
-        url = 'editData.php?maTram='+row.maTram;
+        url = 'tram/editData.php?maTram='+row.maTram;
     }
 }
 function saveUser(){
@@ -124,7 +128,7 @@ function destroyUser(){
     if (row){
         $.messager.confirm('Confirm','Are you sure you want to delete this user?',function(r){
             if (r){
-                $.post('deleteData.php', {maTram:row.maTram}, function(response){
+                $.post('tram/deleteData.php', {maTram:row.maTram}, function(response){
                     if(response.status == 1){
                         $('#dg').datagrid('reload');
                     }else{

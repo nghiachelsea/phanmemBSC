@@ -1,10 +1,13 @@
+
+
+
 <!DOCTYPE html>
 <!-- // Nguyen trong nghia -->
 <html>
 <head>
     <meta charset="UTF-8">
     <title>QUẢN LÝ DANH SÁCH ĐƠN VỊ</title>
-        <link rel="stylesheet" type="text/css" href="../../lib/themes/default/easyui.css">
+         <link rel="stylesheet" type="text/css" href="../../lib/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="../../lib/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="../../lib/themes/color.css">
     <link rel="stylesheet" type="text/css" href="../../lib/demo/demo.css">
@@ -15,7 +18,7 @@
     <center><h2>QUẢN LÝ DANH SÁCH ĐƠN VỊ</h2></center>
     
     
-    <center><table id="dg" title="Quản lý đơn vị" class="easyui-datagrid" url="getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
+    <center><table id="dg" title="Quản lý đơn vị" class="easyui-datagrid" url="donvi/getData.php" toolbar="#toolbarDV" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
     <thead>
         <tr>
                 <th field="maDonvi"> Mã đơn vị</th>
@@ -26,7 +29,7 @@
             </tr>
         </thead>
     </table></center>
-    <div id="toolbar">
+    <div id="toolbarDV">
     <div id="tb">
         <input id="term" placeholder="Type keywords...">
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="timKiem()">Search</a>
@@ -73,14 +76,14 @@ var url;
 function themDonvi(){
     $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm đơn vị');
     $('#fm').form('clear');
-    url = 'addData.php';
+    url = 'donvi/addData.php';
 }
 function suaDonvi(){
     var row = $('#dg').datagrid('getSelected');
     if (row){
         $('#dlg').dialog('open').dialog('center').dialog('setTitle','Sửa đơn vị');
         $('#fm').form('load',row);
-        url = 'editData.php?maDonvi='+row.maDonvi;
+        url = 'donvi/editData.php?maDonvi='+row.maDonvi;
     }
 }
 function luuDonvi(){
@@ -108,7 +111,7 @@ function xoaDonvi(){
     if (row){
         $.messager.confirm('Confirm','Are you sure you want to delete this user?',function(r){
             if (r){
-                $.post('deleteData.php', {maDonvi:row.maDonvi}, function(response){
+                $.post('donvi/deleteData.php', {maDonvi:row.maDonvi}, function(response){
                     if(response.status == 1){
                         $('#dg').datagrid('reload');
                     }else{

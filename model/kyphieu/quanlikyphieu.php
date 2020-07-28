@@ -1,4 +1,7 @@
 
+
+
+
 <!DOCTYPE html>
 <!-- // To Vu Ca - B1606870 -->
 <html>
@@ -16,7 +19,7 @@
     <center><h2>Quản lý kỳ phiếu</h2></center>
     
     
-    <center><table id="dg" title="Quản lý kỳ phiếu" class="easyui-datagrid" url="getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
+    <center><table id="dg" title="Quản lý kỳ phiếu" class="easyui-datagrid" url="kyphieu/getData.php" toolbar="#toolbarKP" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
     <thead>
         <tr>
                 <th field="maKyphieu">Mã kỳ phiếu</th>
@@ -29,7 +32,7 @@
             </tr>
         </thead>
     </table></center>
-    <div id="toolbar">
+    <div id="toolbarKP">
     <div id="tb">
         <input id="term" placeholder="Type keywords...">
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
@@ -54,10 +57,10 @@
                 <input type="text" class="easyui-textbox" data-options="label:'Tên kỳ phiếu',labelPosition:'top' ,prompt:'tenKyphieu', height:60" style="width: 100%" id="tenKyphieu" name="tenKyphieu">
             </div>
             <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Ngày bắt đầu',labelPosition:'top' ,prompt:'ngayBatdau', height:60" style="width: 100%" id="ngayBatdau" name="ngayBatdau">
+                <input type="text" class="easyui-datebox" data-options="label:'Ngày bắt đầu',labelPosition:'top' ,prompt:'ngayBatdau', height:60" style="width: 100%" id="ngayBatdau" name="ngayBatdau">
             </div>
             <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Ngày kết thúc',labelPosition:'top' ,prompt:'ngayKetthuc', height:60" style="width: 100%" id="ngayKetthuc" name="ngayKetthuc">
+                <input type="text" class="easyui-datebox" data-options="label:'Ngày kết thúc',labelPosition:'top' ,prompt:'ngayKetthuc', height:60" style="width: 100%" id="ngayKetthuc" name="ngayKetthuc">
             </div>
             <div style="margin-bottom:20px">
                 <input type="text" class="easyui-textbox" data-options="label:'Tháng',labelPosition:'top' ,prompt:'thang', height:60" style="width: 100%" id="thang" name="thang">
@@ -82,14 +85,14 @@ var url;
 function newKP() {
     $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm kỳ phiếu');
     $('#fm').form('clear');
-    url = 'addData.php';
+    url = 'kyphieu/addData.php';
 }
 function  editKP (){
     var row = $('#dg').datagrid('getSelected');
     if (row){
         $('#dlg').dialog('open').dialog('center').dialog('setTitle','Cập nhật kỳ phiếu');
         $('#fm').form('load',row);
-        url = 'editData.php?maKyphieu='+row.maKyphieu;
+        url = 'kyphieu/editData.php?maKyphieu='+row.maKyphieu;
     }
 }
 function  saveKP () {
@@ -117,7 +120,7 @@ function destroyKP(){
     if (row){
         $.messager.confirm('Confirm','Bạn có chắc chắn muốn xóa kỳ phiếu này?',function(r){
             if (r){
-                $.post('deleteData.php', {maKyphieu:row.maKyphieu}, function(response){
+                $.post('kyphieu/deleteData.php', {maKyphieu:row.maKyphieu}, function(response){
                     if(response.status == 1){
                         $('#dg').datagrid('reload');
                     }else{
