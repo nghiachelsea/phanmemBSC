@@ -18,7 +18,7 @@ if(!empty($_REQUEST['maTieuchi']) && !empty($_REQUEST['maTN_TTVT']) && !empty( $
     $mucdiemtruttTTDHTT = $_REQUEST['mucdiemtruttTTDHTT'];
      
    
-    $sql = "INSERT INTO tieuchi(maTieuchi,maTN_TTVT,maTN_TTDHTT,tenTieuchi, chitietTieuchi, mucdiemtrucnTTVT, mucdiemtruttTTVT, mucdiemtrucnTTDHTT, mucdiemtruttTTDHTT) VALUES ('$maTieuchi','$maTN_TTVT','$maTN_TTDHTT','$tenTieuchi', '$chitietTieuchi', '$mucdiemtrucnTTVT', '$mucdiemtruttTTVT', '$mucdiemtrucnTTDHTT','$mucdiemtruttTTDHTT')";
+    $sql = "CALL addTieuchi('$maTieuchi','$maTN_TTVT','$maTN_TTDHTT','$tenTieuchi', '$chitietTieuchi', '$mucdiemtrucnTTVT', '$mucdiemtruttTTVT', '$mucdiemtrucnTTDHTT','$mucdiemtruttTTDHTT')";
     $insert = mysqli_query($con,$sql);
     
      

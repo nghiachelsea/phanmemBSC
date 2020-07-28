@@ -7,10 +7,10 @@ $response = array(
     'status' => 0, 
     'msg' => 'Some problems occurred, please try again.' 
 ); 
-if(!empty($_REQUEST['maTieuchi'])){ 
-    $maTieuchi = intval($_REQUEST['maTieuchi']);  
+if(!empty($_REQUEST['maKyphieu'])){ 
+    $maKyphieu = intval($_REQUEST['maKyphieu']);  
      
-    $sql = "call deleteTieuchi('$maTieuchi')"; 
+    $sql = "DELETE FROM kyphieu WHERE maKyphieu = '$maKyphieu'"; 
     $delete = mysqli_query($con,$sql); 
      
     if($delete){ 

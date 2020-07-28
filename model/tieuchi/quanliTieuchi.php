@@ -90,14 +90,14 @@ var url;
 function newTC() {
     $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
     $('#fm').form('clear');
-    url = 'addData.php';
+    url = 'tieuchi/addData.php';
 }
 function  editTC (){
     var row = $('#dg').datagrid('getSelected');
     if (row){
         $('#dlg').dialog('open').dialog('center').dialog('setTitle','Cập nhật tiêu chí');
         $('#fm').form('load',row);
-        url = 'editData.php?id='+row.id;
+        url = 'tieuchi/editData.php?maTieuchi='+row.maTieuchi;
     }
 }
 function  saveTC () {
@@ -125,7 +125,7 @@ function destroyTC(){
     if (row){
         $.messager.confirm('Confirm','Bạn có chắc chắn muốn xóa tiêu chí này?',function(r){
             if (r){
-                $.post('deleteData.php', {id:row.id}, function(response){
+                $.post('tieuchi/deleteData.php', {maTieuchi:row.maTieuchi}, function(response){
                     if(response.status == 1){
                         $('#dg').datagrid('reload');
                     }else{

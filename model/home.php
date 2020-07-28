@@ -1,7 +1,10 @@
 <?php 
 session_start();
+if(!isset($_SESSION['maND'])){
+  header('location:login/login.php');
 
-
+}
+echo "Your id: ".$_SESSION['maND'];
 ?>
 
 <!DOCTYPE>
@@ -45,6 +48,9 @@ session_start();
         		<div title="Thống kê theo số điểm" style="padding:10px"> </div>
         	</div>
       	</div>
+        <a href = "logout.php" style="padding:10px">
+            Logout
+        </a>
      </div>
 
 	

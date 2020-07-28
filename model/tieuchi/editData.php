@@ -23,7 +23,7 @@ if(!empty($_REQUEST['maTieuchi']) && !empty($_REQUEST['maTN_TTVT']) && !empty( $
         $maTieuchi = intval($_REQUEST['maTieuchi']); 
           
          
-        $sql = "UPDATE tieuchi SET maTN_TTVT='$maTN_TTVT', maTN_TTDHTT='$maTN_TTDHTT', tenTieuchi='$tenTieuchi', chitietTieuchi='$chitietTieuchi', mucdiemtrucnTTVT='$mucdiemtrucnTTVT',mucdiemtruttTTVT='$mucdiemtruttTTVT',mucdiemtrucnTTDHTT='$mucdiemtrucnTTDHTT',mucdiemtruttTTDHTT='$mucdiemtruttTTDHTT' WHERE maTieuchi = $maTieuchi"; 
+        $sql = "call updateTieuchi('$maTieuchi','$maTN_TTVT','$maTN_TTDHTT','$tenTieuchi', '$chitietTieuchi', '$mucdiemtrucnTTVT', '$mucdiemtruttTTVT', '$mucdiemtrucnTTDHTT','$mucdiemtruttTTDHTT')"; 
         $update = mysqli_query($con, $sql); 
          
         if($update){ 
