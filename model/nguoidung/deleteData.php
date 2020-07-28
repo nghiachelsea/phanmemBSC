@@ -7,11 +7,10 @@ $response = array(
     'status' => 0, 
     'msg' => 'Some problems occurred, please try again.' 
 ); 
-if(!empty($_REQUEST['maDonvi'])){ 
-    $maDonvi = strval($_REQUEST['maDonvi']);  
+if(!empty($_REQUEST['maND'])){ 
+    $maND = strval($_REQUEST['maND']);  
      
-    $sql = "call deleteDonvi('$maDonvi')";         
-
+    $sql = "DELETE FROM nguoidung WHERE maND = '$maND'"; 
     $delete = mysqli_query($con,$sql); 
      
     if($delete){ 

@@ -7,20 +7,22 @@ $response = array(
     'status' => 0, 
     'msg' => 'Some problems occurred, please try again.' 
 ); 
-if(!empty($_REQUEST['maDonvi']) && !empty($_REQUEST['tenDonvi']) && !empty( $_REQUEST['tenViettat']) && !empty($_REQUEST['loaiDonvi'])  && !empty( $_REQUEST['trangthaiDonvi'])){ 
+if(!empty($_REQUEST['maND']) && !empty($_REQUEST['maDonvi']) && !empty( $_REQUEST['tenND']) && !empty($_REQUEST['taiKhoan'])  && !empty( $_REQUEST['matKhau'])  && !empty( $_REQUEST['loaiND'])){ 
+    $maND = $_REQUEST['maND']; 
     $maDonvi = $_REQUEST['maDonvi']; 
-    $tenDonvi = $_REQUEST['tenDonvi']; 
-    $tenViettat = $_REQUEST['tenViettat']; 
-    $loaiDonvi = $_REQUEST['loaiDonvi'];
-    $trangthaiDonvi = $_REQUEST['trangthaiDonvi'];
+    $tenND = $_REQUEST['tenND']; 
+    $taiKhoan = $_REQUEST['taiKhoan'];
+    $matKhau = $_REQUEST['matKhau'];
+    $loaiND = $_REQUEST['loaiND'];
+    
      
-     
-    if(!empty($_REQUEST['maDonvi'])){ 
-      $maDonvi = strval($_REQUEST['maDonvi']); 
+    if(!empty($_REQUEST['maND'])){ 
+        $maND = strval($_REQUEST['maND']); 
           
-      $sql = "call editDonvi('$maDonvi','$tenDonvi','$tenViettat','$loaiDonvi', '$trangthaiDonvi')";         
+         
+        $sql = "UPDATE nguoidung SET maDonvi='$maDonvi', tenND='$tenND', taiKhoan='$taiKhoan', matKhau='$matKhau', loaiND='$loaiND' WHERE maND = '$maND'"; 
         $update = mysqli_query($con, $sql); 
-
+         
         if($update){ 
             $response['status'] = 1; 
             $response['msg'] = 'Data has been updated successfully!'; 

@@ -13,8 +13,7 @@ if(!empty($_REQUEST['maDonvi']) && !empty($_REQUEST['tenDonvi']) && !empty( $_RE
     $loaiDonvi = $_REQUEST['loaiDonvi'];
     $trangthaiDonvi = $_REQUEST['trangthaiDonvi'];
      
-   
-    $sql = "INSERT INTO donvi(maDonvi,tenDonvi,tenViettat,loaiDonvi, trangthaiDonvi) VALUES ('$maDonvi','$tenDonvi','$tenViettat','$loaiDonvi', '$trangthaiDonvi')";
+    $sql = "CALL addDonvi('$maDonvi','$tenDonvi','$tenViettat','$loaiDonvi', '$trangthaiDonvi')";
     $insert = mysqli_query($con,$sql);
     
      
