@@ -18,7 +18,7 @@ if(!empty($_REQUEST['maKyphieu']) && !empty($_REQUEST['maND']) && !empty( $_REQU
      
      
     if(!empty($_REQUEST['maKyphieu'])){ 
-        $maKyphieu = intval($_REQUEST['maKyphieu']); 
+        $maKyphieu = strval($_REQUEST['maKyphieu']); 
           
          
         $sql = "UPDATE kyphieu SET maND='$maND', tenKyphieu='$tenKyphieu', ngayBatdau='$ngayBatdau', ngayKetthuc='$ngayKetthuc', thang='$thang',ghichu='$ghichu' WHERE maKyphieu = '$maKyphieu'"; 

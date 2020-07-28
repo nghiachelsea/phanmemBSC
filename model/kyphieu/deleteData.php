@@ -8,7 +8,7 @@ $response = array(
     'msg' => 'Some problems occurred, please try again.' 
 ); 
 if(!empty($_REQUEST['maKyphieu'])){ 
-    $maKyphieu = intval($_REQUEST['maKyphieu']);  
+    $maKyphieu = strval($_REQUEST['maKyphieu']);  
      
     $sql = "DELETE FROM kyphieu WHERE maKyphieu = '$maKyphieu'"; 
     $delete = mysqli_query($con,$sql); 

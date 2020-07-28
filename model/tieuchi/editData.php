@@ -20,7 +20,7 @@ if(!empty($_REQUEST['maTieuchi']) && !empty($_REQUEST['maTN_TTVT']) && !empty( $
      
      
     if(!empty($_REQUEST['maTieuchi'])){ 
-        $maTieuchi = intval($_REQUEST['maTieuchi']); 
+        $maTieuchi = strval($_REQUEST['maTieuchi']); 
           
          
         $sql = "call updateTieuchi('$maTieuchi','$maTN_TTVT','$maTN_TTDHTT','$tenTieuchi', '$chitietTieuchi', '$mucdiemtrucnTTVT', '$mucdiemtruttTTVT', '$mucdiemtrucnTTDHTT','$mucdiemtruttTTDHTT')"; 

@@ -8,7 +8,7 @@ $response = array(
     'msg' => 'Some problems occurred, please try again.' 
 ); 
 if(!empty($_REQUEST['maTieuchi'])){ 
-    $maTieuchi = intval($_REQUEST['maTieuchi']);  
+    $maTieuchi = strval($_REQUEST['maTieuchi']);  
      
     $sql = "call deleteTieuchi('$maTieuchi')"; 
     $delete = mysqli_query($con,$sql); 
