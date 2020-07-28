@@ -10,7 +10,8 @@ $response = array(
 if(!empty($_REQUEST['maDonvi'])){ 
     $maDonvi = strval($_REQUEST['maDonvi']);  
      
-    $sql = "DELETE FROM donvi WHERE maDonvi = '$maDonvi'"; 
+    $sql = "call deleteDonvi('$maDonvi')";         
+
     $delete = mysqli_query($con,$sql); 
      
     if($delete){ 

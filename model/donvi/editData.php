@@ -18,8 +18,7 @@ if(!empty($_REQUEST['maDonvi']) && !empty($_REQUEST['tenDonvi']) && !empty( $_RE
     if(!empty($_REQUEST['maDonvi'])){ 
       $maDonvi = strval($_REQUEST['maDonvi']); 
           
-         
-        $sql = "UPDATE donvi SET  tenDonvi='$tenDonvi', tenViettat='$tenViettat', loaiDonvi='$loaiDonvi', trangthaiDonvi='$trangthaiDonvi' WHERE maDonvi = '$maDonvi'"; 
+      $sql = "call editDonvi('$maDonvi','$tenDonvi','$tenViettat','$loaiDonvi', '$trangthaiDonvi')";         
         $update = mysqli_query($con, $sql); 
 
         if($update){ 
