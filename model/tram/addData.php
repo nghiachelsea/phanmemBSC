@@ -18,8 +18,7 @@ if(!empty($_REQUEST['maTram']) && !empty($_REQUEST['maDonvi']) && !empty($_REQUE
 	$toadoY = $_REQUEST['toadoY'];
      
      
-    $sql = "INSERT INTO tram(maTram,maDonvi,maQuanli,maGiamsat,tenTram,diachiTram,trangthaiTram,toadoX,toadoY) 
-	VALUES ('$maTram','$maDonvi','$maQuanli','$maGiamsat','$tenTram','$diachiTram','$trangthaiTram','$toadoX','$toadoY')"; 
+    $sql = "CALL addTram('$maTram','$maDonvi','$maQuanli','$maGiamsat','$tenTram','$diachiTram','$trangthaiTram','$toadoX','$toadoY')"; 
     $insert = mysqli_query($con,$sql);
      
     if($insert){ 
