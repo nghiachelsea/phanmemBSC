@@ -1,4 +1,4 @@
-<?php
+ <?php
 // To Vu Ca - B1606870 
 // Include the database config file 
 include("../config/config.php");

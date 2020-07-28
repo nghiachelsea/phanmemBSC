@@ -29,18 +29,18 @@
     <div id="toolbar">
     <div id="tb">
         <input id="term" placeholder="Type keywords...">
-        <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
+        <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="timKiem()">Search</a>
     </div>
     <div id="tb2" style="">
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()"> THÊM</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">SỬA</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">XÓA</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="themDonvi()"> THÊM ĐƠN VỊ</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="suaDonvi()">SỬA ĐƠN VỊ</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="xoaDonvi()">XÓA ĐƠN VỊ</a>
     </div>
 </div>
     
     <div id="dlg" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
         <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
-            <h3>Nhập thông tin tiêu chí</h3>
+            <h3>Nhập thông tin đơn vị</h3>
             <div style="margin-bottom:20px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mã đơn vị',labelPosition:'top' ,prompt:'maDonvi', height:60" style="width: 100%" id="maDonvi" name="maDonvi">
             </div>
@@ -59,31 +59,31 @@
         </form>
     </div>
     <div id="dlg-buttons">
-        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="luuDonvi()" style="width:90px">Save</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
     </div>
     <script type="text/javascript">
-function doSearch(){
+function timKiem(){
     $('#dg').datagrid('load', {
         term: $('#term').val()
     });
 }
         
 var url;
-function newUser(){
-    $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
+function themDonvi(){
+    $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm đơn vị');
     $('#fm').form('clear');
     url = 'addData.php';
 }
-function editUser(){
+function suaDonvi(){
     var row = $('#dg').datagrid('getSelected');
     if (row){
-        $('#dlg').dialog('open').dialog('center').dialog('setTitle','Sửa tiêu chí');
+        $('#dlg').dialog('open').dialog('center').dialog('setTitle','Sửa đơn vị');
         $('#fm').form('load',row);
-        url = 'editData.php?id='+row.id;
+        url = 'editData.php?maDonvi='+row.maDonvi;
     }
 }
-function saveUser(){
+function luuDonvi(){
     $('#fm').form('submit',{
         url: url,
         onSubmit: function(){
@@ -103,12 +103,12 @@ function saveUser(){
         }
     });
 }
-function destroyUser(){
+function xoaDonvi(){
     var row = $('#dg').datagrid('getSelected');
     if (row){
         $.messager.confirm('Confirm','Are you sure you want to delete this user?',function(r){
             if (r){
-                $.post('deleteData.php', {id:row.id}, function(response){
+                $.post('deleteData.php', {maDonvi:row.maDonvi}, function(response){
                     if(response.status == 1){
                         $('#dg').datagrid('reload');
                     }else{

@@ -1,5 +1,5 @@
 <?php
-// Nguyen trong nghia
+// Nguyen Trong Nghia
 // Include the database config file 
 include("../config/config.php");
 $con = mysqli_connect(_HOST_NAME, _USER_NAME,_PASSWORD) or die("Database could not connect.");
@@ -15,9 +15,9 @@ $offset = ($page-1)*$rows;
  
 $result = array(); 
  
-$whereSQL = "maDonvi LIKE '$searchTerm%' OR tenDonvi LIKE '$searchTerm%' OR tenViettat '$searchTerm%' OR loaiDonvi LIKE '$searchTerm%' OR trangthaiDonvi LIKE '$searchTerm%'"; 
+$whereSQL = "maDonvi LIKE '$searchTerm%' OR tenDonvi LIKE '$searchTerm%' OR tenViettat LIKE '$searchTerm%' OR loaiDonvi LIKE '$searchTerm%' OR trangthaiDonvi LIKE '$searchTerm%'"; 
 $sql = "SELECT COUNT(*) FROM donvi WHERE $whereSQL";
-$result =  mysqli_query($con,$sql); 
+$result =  mysqli_query($con,$sql);
 $row = mysqli_fetch_row($result);
 $response["total"] = $row[0]; 
 $sql1 = "SELECT * FROM donvi WHERE $whereSQL ORDER BY maDonvi DESC LIMIT $offset,$rows";
