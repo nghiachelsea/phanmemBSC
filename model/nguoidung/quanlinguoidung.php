@@ -12,14 +12,7 @@
     <script type="text/javascript" src="../../lib/jquery.easyui.min.js"></script>
 </head>
 <body>
-    <center><h2>Quản lí danh sách người dùng</h2></center>
-    
-    
-<<<<<<< HEAD
-    <center><table id="dg" title="Users Management" class="easyui-datagrid" url="nguoidung/getData.php" toolbar="#toolbarND" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%'">
-=======
     <center><table id="nd" title="Users Management" class="easyui-datagrid" url="nguoidung/getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%'">
->>>>>>> 8ee69a29a086067b93e3b0b757a8a858e5917448
     <thead>
         <tr>
                 <th field="maND"> Mã Người Dùng</th>
@@ -31,15 +24,12 @@
             </tr>
         </thead>
     </table></center>
-<<<<<<< HEAD
     <div id="toolbarND">
     <div id="tb">
         <input id="term" placeholder="Type keywords...">
-=======
     <div id="toolbar">
     <div id="tb_nd">
         <input id="term_nd" placeholder="Type keywords...">
->>>>>>> 8ee69a29a086067b93e3b0b757a8a858e5917448
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
     </div>
     <div id="tb_nd2" style="">
