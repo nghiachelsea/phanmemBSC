@@ -15,10 +15,10 @@
     <script type="text/javascript" src="../../lib/jquery.easyui.min.js"></script>
 </head>
 <body>
-    <center><h2>QUẢN LÝ DANH SÁCH ĐƠN VỊ</h2></center>
     
     
-    <center><table id="dg" title="Quản lý đơn vị" class="easyui-datagrid" url="donvi/getData.php" toolbar="#toolbarDV" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
+    
+    <center><table id="dv" title="Quản lý đơn vị" class="easyui-datagrid" url="donvi/getData.php" toolbar="#toolbarDV" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
     <thead>
         <tr>
                 <th field="maDonvi"> Mã đơn vị</th>
@@ -30,19 +30,19 @@
         </thead>
     </table></center>
     <div id="toolbarDV">
-    <div id="tb">
-        <input id="term" placeholder="Type keywords...">
+    <div id="tb_dv">
+        <input id="term_s" placeholder="Type keywords...">
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="timKiem()">Search</a>
     </div>
-    <div id="tb2" style="">
+    <div id="tb_dv2" style="">
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="themDonvi()"> THÊM ĐƠN VỊ</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="suaDonvi()">SỬA ĐƠN VỊ</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="xoaDonvi()">XÓA ĐƠN VỊ</a>
     </div>
 </div>
     
-    <div id="dlg" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
-        <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
+    <div id="dlv" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlv-buttons'">
+        <form id="fr" method="post" novalidate style="margin:0;padding:20px 50px">
             <h3>Nhập thông tin đơn vị</h3>
             <div style="margin-bottom:20px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mã đơn vị',labelPosition:'top' ,prompt:'maDonvi', height:60" style="width: 100%" id="maDonvi" name="maDonvi">
@@ -61,33 +61,33 @@
             </div>
         </form>
     </div>
-    <div id="dlg-buttons">
+    <div id="dlv-buttons">
         <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="luuDonvi()" style="width:90px">Save</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlv').dialog('close')" style="width:90px">Cancel</a>
     </div>
     <script type="text/javascript">
 function timKiem(){
-    $('#dg').datagrid('load', {
-        term: $('#term').val()
+    $('#dv').datagrid('load', {
+        term_s: $('#term_s').val()
     });
 }
         
 var url;
 function themDonvi(){
-    $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm đơn vị');
-    $('#fm').form('clear');
+    $('#dlv').dialog('open').dialog('center').dialog('setTitle','Thêm đơn vị');
+    $('#fr').form('clear');
     url = 'donvi/addData.php';
 }
 function suaDonvi(){
-    var row = $('#dg').datagrid('getSelected');
+    var row = $('#dv').datagrid('getSelected');
     if (row){
-        $('#dlg').dialog('open').dialog('center').dialog('setTitle','Sửa đơn vị');
-        $('#fm').form('load',row);
+        $('#dlv').dialog('open').dialog('center').dialog('setTitle','Sửa đơn vị');
+        $('#fr').form('load',row);
         url = 'donvi/editData.php?maDonvi='+row.maDonvi;
     }
 }
 function luuDonvi(){
-    $('#fm').form('submit',{
+    $('#fr').form('submit',{
         url: url,
         onSubmit: function(){
             return $(this).form('validate');
@@ -100,20 +100,20 @@ function luuDonvi(){
                     msg: respData.msg
                 });
             }else{
-                $('#dlg').dialog('close');
-                $('#dg').datagrid('reload');
+                $('#dlv').dialog('close');
+                $('#dv').datagrid('reload');
             }
         }
     });
 }
 function xoaDonvi(){
-    var row = $('#dg').datagrid('getSelected');
+    var row = $('#dv').datagrid('getSelected');
     if (row){
         $.messager.confirm('Confirm','Are you sure you want to delete this user?',function(r){
             if (r){
                 $.post('donvi/deleteData.php', {maDonvi:row.maDonvi}, function(response){
                     if(response.status == 1){
-                        $('#dg').datagrid('reload');
+                        $('#dv').datagrid('reload');
                     }else{
                         $.messager.show({
                             title: 'Error',

@@ -1,4 +1,4 @@
-f<?php 
+<?php 
 include("../config/config.php");
 $con = mysqli_connect(_HOST_NAME, _USER_NAME,_PASSWORD) or die("Database could not connect.");
 mysqli_select_db($con,_DB_NAME) or die("Could not select database.");
