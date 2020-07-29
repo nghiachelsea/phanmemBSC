@@ -16,10 +16,8 @@
     <script type="text/javascript" src="../../lib/jquery.easyui.min.js"></script>
 </head>
 <body>
-    <center><h2>Quản lí danh sách trạm</h2></center>
     
-    
-    <center><table id="dg" title="Users Management" class="easyui-datagrid" url="tram/getData.php" toolbar="#toolbarTr" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
+    <center><table id="tram" title="Users Management" class="easyui-datagrid" url="tram/getData.php" toolbar="#toolbarTr" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
     <thead>
         <tr>
                 <th field="maTram"> Mã Trạm</th>
@@ -35,19 +33,19 @@
         </thead>
     </table></center>
     <div id="toolbarTr">
-    <div id="tb">
-        <input id="term" placeholder="Type keywords...">
+    <div id="tb_tram">
+        <input id="term_tram" placeholder="Type keywords...">
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
     </div>
-    <div id="tb2" style="">
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()"> THÊM TRẠM</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">SỬA TRẠM</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">XÓA TRẠM</a>
+    <div id="tb_tram2" style="">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newTram()"> THÊM TRẠM</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editTram()">SỬA TRẠM</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyTram()">XÓA TRẠM</a>
     </div>
 </div>
     
-    <div id="dlg" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
-        <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
+    <div id="dlg_tram" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg_tram-buttons'">
+        <form id="fm_tram" method="post" novalidate style="margin:0;padding:20px 50px">
             <h3>Nhập thông tin trạm</h3>
             <div style="margin-bottom:20px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mã Trạm',labelPosition:'top' ,prompt:'maTram', height:60" style="width: 100%" id="maTram" name="maTram">
@@ -78,33 +76,33 @@
             </div>
         </form>
     </div>
-    <div id="dlg-buttons">
-        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Save</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+    <div id="dlg_tram-buttons">
+        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveTram()" style="width:90px">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg_tram').dialog('close')" style="width:90px">Cancel</a>
     </div>
     <script type="text/javascript">
 function doSearch(){
-    $('#dg').datagrid('load', {
-        term: $('#term').val()
+    $('#tram').datagrid('load', {
+        term_tram: $('#term_tram').val()
     });
 }
         
 var url;
-function newUser(){
-    $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
-    $('#fm').form('clear');
+function newTram(){
+    $('#dlg_tram').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
+    $('#fm_tram').form('clear');
     url = 'tram/addData.php';
 }
-function editUser(){
-    var row = $('#dg').datagrid('getSelected');
+function editTram(){
+    var row = $('#tram').datagrid('getSelected');
     if (row){
-        $('#dlg').dialog('open').dialog('center').dialog('setTitle','Sửa tiêu chí');
-        $('#fm').form('load',row);
+        $('#dlg_tram').dialog('open').dialog('center').dialog('setTitle','Sửa tiêu chí');
+        $('#fm_tram').form('load',row);
         url = 'tram/editData.php?maTram='+row.maTram;
     }
 }
-function saveUser(){
-    $('#fm').form('submit',{
+function saveTram(){
+    $('#fm_tram').form('submit',{
         url: url,
         onSubmit: function(){
             return $(this).form('validate');
@@ -117,20 +115,20 @@ function saveUser(){
                     msg: respData.msg
                 });
             }else{
-                $('#dlg').dialog('close');
-                $('#dg').datagrid('reload');
+                $('#dlg_tram').dialog('close');
+                $('#tram').datagrid('reload');
             }
         }
     });
 }
-function destroyUser(){
-    var row = $('#dg').datagrid('getSelected');
+function destroyTram(){
+    var row = $('#tram').datagrid('getSelected');
     if (row){
         $.messager.confirm('Confirm','Are you sure you want to delete this user?',function(r){
             if (r){
                 $.post('tram/deleteData.php', {maTram:row.maTram}, function(response){
                     if(response.status == 1){
-                        $('#dg').datagrid('reload');
+                        $('#tram').datagrid('reload');
                     }else{
                         $.messager.show({
                             title: 'Error',

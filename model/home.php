@@ -1,11 +1,3 @@
-<?php 
-session_start();
-if(!isset($_SESSION['maND'])){
-  header('location:login/login.php');
-
-}
-echo "Your id: ".$_SESSION['maND'];
-?>
 
 <!DOCTYPE>
 <!-- // To Vu Ca - B1606870 -->
