@@ -27,7 +27,7 @@
   </div>
   <div id="cc" class="easyui-layout" style="width:100%;height:90%;">
     <div data-options="region:'south'" style="padding:5px; border-width: 0px ">
-      <div class="easyui-tabs" style="width:1300px;height:520px;";>
+      <div class="easyui-tabs" style="width:'90%';height:99%;";>
         <div title="Hồ sơ cá nhân" style="padding:10px">
           <div title="Đổi mật khẩu" style="padding:10px">
           
