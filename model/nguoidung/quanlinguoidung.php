@@ -15,7 +15,7 @@
     <center><h2>Quản lí danh sách người dùng</h2></center>
     
     
-    <center><table id="dg" title="Users Management" class="easyui-datagrid" url="nguoidung/getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%'">
+    <center><table id="nd" title="Users Management" class="easyui-datagrid" url="nguoidung/getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%'">
     <thead>
         <tr>
                 <th field="maND"> Mã Người Dùng</th>
@@ -28,19 +28,19 @@
         </thead>
     </table></center>
     <div id="toolbar">
-    <div id="tb">
-        <input id="term" placeholder="Type keywords...">
+    <div id="tb_nd">
+        <input id="term_nd" placeholder="Type keywords...">
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
     </div>
-    <div id="tb2" style="">
+    <div id="tb_nd2" style="">
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()"> THÊM NGƯỜI DÙNG</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">SỬA THÔNG TIN NGƯỜI DÙNG</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">XÓA NGƯỜI DÙNG</a>
     </div>
 </div>
     
-    <div id="dlg" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
-        <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
+    <div id="dlg_nd" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg_nd-buttons'">
+        <form id="fm_nd" method="post" novalidate style="margin:0;padding:20px 50px">
             <h3>Nhập thông tin người dùng</h3>
             <div style="margin-bottom:20px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mã Người Dùng',labelPosition:'top' ,prompt:'maND', height:60" style="width: 100%" id="maND" name="maND">
@@ -62,33 +62,33 @@
             </div>
         </form>
     </div>
-    <div id="dlg-buttons">
+    <div id="dlg_nd-buttons">
         <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Save</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg_nd').dialog('close')" style="width:90px">Cancel</a>
     </div>
     <script type="text/javascript">
 function doSearch(){
-    $('#dg').datagrid('load', {
-        term: $('#term').val()
+    $('#nd').datagrid('load', {
+        term_nd: $('#term_nd').val()
     });
 }
         
 var url;
 function newUser(){
-    $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
-    $('#fm').form('clear');
+    $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
+    $('#fm_nd').form('clear');
     url = 'nguoidung/addData.php';
 }
 function editUser(){
-    var row = $('#dg').datagrid('getSelected');
+    var row = $('#nd').datagrid('getSelected');
     if (row){
-        $('#dlg').dialog('open').dialog('center').dialog('setTitle','Sửa tiêu chí');
-        $('#fm').form('load',row);
+        $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Sửa tiêu chí');
+        $('#fm_nd').form('load',row);
         url = 'nguoidung/editData.php?maND='+row.maND;
     }
 }
 function saveUser(){
-    $('#fm').form('submit',{
+    $('#fm_nd').form('submit',{
         url: url,
         onSubmit: function(){
             return $(this).form('validate');
@@ -101,20 +101,20 @@ function saveUser(){
                     msg: respData.msg
                 });
             }else{
-                $('#dlg').dialog('close');
-                $('#dg').datagrid('reload');
+                $('#dlg_nd').dialog('close');
+                $('#nd').datagrid('reload');
             }
         }
     });
 }
 function destroyUser(){
-    var row = $('#dg').datagrid('getSelected');
+    var row = $('#nd').datagrid('getSelected');
     if (row){
         $.messager.confirm('Confirm','Are you sure you want to delete this user?',function(r){
             if (r){
                 $.post('nguoidung/deleteData.php', {maND:row.maND}, function(response){
                     if(response.status == 1){
-                        $('#dg').datagrid('reload');
+                        $('#nd').datagrid('reload');
                     }else{
                         $.messager.show({
                             title: 'Error',
