@@ -10,7 +10,7 @@ $response = array(
 if(!empty($_REQUEST['maTram'])){ 
     $maTram = strval($_REQUEST['maTram']);  
      
-    $sql = "DELETE FROM tram WHERE maTram = '$maTram'"; 
+    $sql = "call deleteTram('$maTram')";
     $delete = mysqli_query($con,$sql); 
      
     if($delete){ 
