@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Quản lí danh sách người dùng</title>
-        <link rel="stylesheet" type="text/css" href="../../lib/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="../../lib/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="../../lib/themes/color.css">
     <link rel="stylesheet" type="text/css" href="../../lib/demo/demo.css">
@@ -15,7 +15,7 @@
     <center><h2>Quản lí danh sách người dùng</h2></center>
     
     
-    <center><table id="dg" title="Users Management" class="easyui-datagrid" url="nguoidung/getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%'">
+    <center><table id="dg" title="Users Management" class="easyui-datagrid" url="nguoidung/getData.php" toolbar="#toolbarND" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%'">
     <thead>
         <tr>
                 <th field="maND"> Mã Người Dùng</th>
@@ -27,7 +27,7 @@
             </tr>
         </thead>
     </table></center>
-    <div id="toolbar">
+    <div id="toolbarND">
     <div id="tb">
         <input id="term" placeholder="Type keywords...">
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>

@@ -33,6 +33,8 @@ echo "Your id: ".$_SESSION['maND'];
         <div title="Quản lý" style="padding:10px">
         	<div class="easyui-tabs" style="width:'90%';height:490px">
 
+            <div></div>
+
         		<div href = "nguoidung/quanlinguoidung.php" title="Quản lý người dùng" style="padding:10px"> </div>
 
             <div href = "tieuchi/quanliTieuchi.php" title="Quản lý tiêu chí" style="padding:10px"></div>

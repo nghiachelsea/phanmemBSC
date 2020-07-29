@@ -1,4 +1,4 @@
-f<?php 
+<?php 
 include("../config/config.php");
 $con = mysqli_connect(_HOST_NAME, _USER_NAME,_PASSWORD) or die("Database could not connect.");
 mysqli_select_db($con,_DB_NAME) or die("Could not select database.");
@@ -21,7 +21,8 @@ if(!empty($_REQUEST['maKyphieu']) && !empty($_REQUEST['maND']) && !empty( $_REQU
         $maKyphieu = strval($_REQUEST['maKyphieu']); 
           
          
-        $sql = "UPDATE kyphieu SET maND='$maND', tenKyphieu='$tenKyphieu', ngayBatdau='$ngayBatdau', ngayKetthuc='$ngayKetthuc', thang='$thang',ghichu='$ghichu' WHERE maKyphieu = '$maKyphieu'"; 
+        $sql = "call editKyphieu('$maKyphieu','$maND','$tenKyphieu','$ngayBatdau', '$ngayKetthuc', '$thang', '$ghichu')";
+ 
         $update = mysqli_query($con, $sql); 
          
         if($update){ 
