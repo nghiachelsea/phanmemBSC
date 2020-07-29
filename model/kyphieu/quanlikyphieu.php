@@ -16,14 +16,8 @@
     <script type="text/javascript" src="../../lib/jquery.easyui.min.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
-    <center><h2>Quản lý kỳ phiếu</h2></center>
     
-    
-    <center><table id="dg" title="Quản lý kỳ phiếu" class="easyui-datagrid" url="getData.php" toolbar="#toolbarKP" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
-=======
     <center><table id="dgKP" title="Quản lý kỳ phiếu" class="easyui-datagrid" url="kyphieu/getData.php" toolbar="#toolbarKP" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
->>>>>>> 6e57c6acec7a3033349d6043774fc4477340da01
     <thead>
         <tr>
                 <th field="maKyphieu">Mã kỳ phiếu</th>
@@ -61,17 +55,16 @@
                 <input type="text" class="easyui-textbox" data-options="label:'Tên kỳ phiếu',labelPosition:'top' ,prompt:'tenKyphieu', height:60" style="width: 100%" id="tenKyphieu" name="tenKyphieu">
             </div>
             <div style="margin-bottom:20px">
-<<<<<<< HEAD
+
                 <input type="text" class="easyui-textbox" data-options="label:'Ngày bắt đầu',labelPosition:'top' ,prompt:'ngayBatdau', height:60" style="width: 100%" id="ngayBatdau" name="ngayBatdau">
             </div>
             <div style="margin-bottom:20px">
                 <input type="text" class="easyui-textbox" data-options="label:'Ngày kết thúc',labelPosition:'top' ,prompt:'ngayKetthuc', height:60" style="width: 100%" id="ngayKetthuc" name="ngayKetthuc">
-=======
                 <input type="text" class="easyui-datebox" data-options="label:'Ngày bắt đầu',labelPosition:'top' ,formatter:myformatter,parser:myparser,prompt:'ngayBatdau', height:60" style="width: 100%" id="ngayBatdau" name="ngayBatdau">
             </div>
             <div style="margin-bottom:20px">
                 <input type="text" class="easyui-datebox" data-options="label:'Ngày kết thúc',labelPosition:'top',formatter:myformatter,parser:myparser ,prompt:'ngayKetthuc', height:60" style="width: 100%" id="ngayKetthuc" name="ngayKetthuc">
->>>>>>> 6e57c6acec7a3033349d6043774fc4477340da01
+
             </div>
             <div style="margin-bottom:20px">
                 <input type="text" class="easyui-textbox" data-options="label:'Tháng',labelPosition:'top' ,prompt:'thang', height:60" style="width: 100%" id="thang" name="thang">
@@ -112,28 +105,23 @@ function doSearch() {
         
 var url;
 function newKP() {
-<<<<<<< HEAD
+
     $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm kỳ phiếu');
     $('#fm').form('clear');
     url = 'addData.php';
-=======
     $('#dlgKP').dialog('open').dialog('center').dialog('setTitle','Thêm kỳ phiếu');
     $('#fmKP').form('clear');
     url = 'kyphieu/addData.php';
->>>>>>> 6e57c6acec7a3033349d6043774fc4477340da01
 }
 function  editKP (){
     var row = $('#dgKP').datagrid('getSelected');
     if (row){
-<<<<<<< HEAD
         $('#dlg').dialog('open').dialog('center').dialog('setTitle','Cập nhật kỳ phiếu');
         $('#fm').form('load',row);
         url = 'editData.php?maKyphieu='+row.maKyphieu;
-=======
         $('#dlgKP').dialog('open').dialog('center').dialog('setTitle','Cập nhật kỳ phiếu');
         $('#fmKP').form('load',row);
         url = 'kyphieu/editData.php?maKyphieu='+row.maKyphieu;
->>>>>>> 6e57c6acec7a3033349d6043774fc4477340da01
     }
 }
 function  saveKP () {
