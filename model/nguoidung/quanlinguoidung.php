@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Quản lí danh sách người dùng</title>
-        <link rel="stylesheet" type="text/css" href="../../lib/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="../../lib/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="../../lib/themes/color.css">
     <link rel="stylesheet" type="text/css" href="../../lib/demo/demo.css">
@@ -12,9 +12,6 @@
     <script type="text/javascript" src="../../lib/jquery.easyui.min.js"></script>
 </head>
 <body>
-    <center><h2>Quản lí danh sách người dùng</h2></center>
-    
-    
     <center><table id="nd" title="Users Management" class="easyui-datagrid" url="nguoidung/getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%'">
     <thead>
         <tr>
@@ -27,6 +24,9 @@
             </tr>
         </thead>
     </table></center>
+    <div id="toolbarND">
+    <div id="tb">
+        <input id="term" placeholder="Type keywords...">
     <div id="toolbar">
     <div id="tb_nd">
         <input id="term_nd" placeholder="Type keywords...">

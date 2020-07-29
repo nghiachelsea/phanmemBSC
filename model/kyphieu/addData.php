@@ -16,7 +16,7 @@ if(!empty($_REQUEST['maKyphieu']) && !empty($_REQUEST['maND']) && !empty( $_REQU
     $ghichu = $_REQUEST['ghichu'];
      
    
-    $sql = "INSERT INTO kyphieu(maKyphieu,maND,tenKyphieu,ngayBatdau, ngayKetthuc, thang, ghichu) VALUES ('$maKyphieu','$maND','$tenKyphieu','$ngayBatdau', '$ngayKetthuc', '$thang', '$ghichu')";
+    $sql = "call addKyphieu('$maKyphieu','$maND','$tenKyphieu','$ngayBatdau', '$ngayKetthuc', '$thang', '$ghichu')";
     $insert = mysqli_query($con,$sql);
     
      

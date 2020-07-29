@@ -16,10 +16,7 @@
     <script type="text/javascript" src="../../lib/jquery.easyui.min.js"></script>
 </head>
 <body>
-    <center><h2>Quản lý tiêu chí</h2></center>
-    
-    
-    <center><table id="dg" title="Quản lý tiêu chí" class="easyui-datagrid" url="tieuchi/getData.php" toolbar="#toolbarTC" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
+    <center><table id="dgTC" title="Quản lý tiêu chí" class="easyui-datagrid" url="tieuchi/getData.php" toolbar="#toolbarTC" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
     <thead>
         <tr>
                 <th field="maTieuchi"> Mã tiêu chí</th>
@@ -35,19 +32,19 @@
         </thead>
     </table></center>
     <div id="toolbarTC">
-    <div id="tb">
-        <input id="term" placeholder="Type keywords...">
+    <div id="tbTC">
+        <input id="termTC" placeholder="Type keywords...">
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
     </div>
-    <div id="tb" style="">
+    <div id="tbTC2" style="">
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newTC()"> THÊM TIÊU CHÍ</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editTC()">SỬA TIÊU CHÍ</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyTC()">XÓA TIÊU CHÍ</a>
     </div>
 </div>
     
-    <div id="dlg" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
-        <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
+    <div id="dlgTC" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlgTC-buttons'">
+        <form id="fmTC" method="post" novalidate style="margin:0;padding:20px 50px">
             <h3>Nhập thông tin tiêu chí</h3>
             <div style="margin-bottom:20px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mã tiêu chí',labelPosition:'top' ,prompt:'maTieuchi', height:60" style="width: 100%" id="maTieuchi" name="maTieuchi">
@@ -78,33 +75,33 @@
             </div>
         </form>
     </div>
-    <div id="dlg-buttons">
+    <div id="dlgTC-buttons">
         <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveTC()" style="width:90px">Save</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlgTC').dialog('close')" style="width:90px">Cancel</a>
     </div>
    <script type="text/javascript">
 function doSearch() {
-    $('#dg').datagrid('load', {
-        term: $('#term').val()
+    $('#dgTC').datagrid('load', {
+        termTC: $('#termTC').val()
     });
 }
         
 var url;
 function newTC() {
-    $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
-    $('#fm').form('clear');
+    $('#dlgTC').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
+    $('#fmTC').form('clear');
     url = 'tieuchi/addData.php';
 }
 function  editTC (){
-    var row = $('#dg').datagrid('getSelected');
+    var row = $('#dgTC').datagrid('getSelected');
     if (row){
-        $('#dlg').dialog('open').dialog('center').dialog('setTitle','Cập nhật tiêu chí');
-        $('#fm').form('load',row);
+        $('#dlgTC').dialog('open').dialog('center').dialog('setTitle','Cập nhật tiêu chí');
+        $('#fmTC').form('load',row);
         url = 'tieuchi/editData.php?maTieuchi='+row.maTieuchi;
     }
 }
 function  saveTC () {
-    $('#fm').form('submit',{
+    $('#fmTC').form('submit',{
         url: url,
         onSubmit: function(){
             return $(this).form('validate');
@@ -117,20 +114,20 @@ function  saveTC () {
                     msg: respData.msg
                 });
             }else{
-                $('#dlg').dialog('close');
-                $('#dg').datagrid('reload');
+                $('#dlgTC').dialog('close');
+                $('#dgTC').datagrid('reload');
             }
         }
     });
 }
 function destroyTC(){
-    var row = $('#dg').datagrid('getSelected');
+    var row = $('#dgTC').datagrid('getSelected');
     if (row){
         $.messager.confirm('Confirm','Bạn có chắc chắn muốn xóa tiêu chí này?',function(r){
             if (r){
                 $.post('tieuchi/deleteData.php', {maTieuchi:row.maTieuchi}, function(response){
                     if(response.status == 1){
-                        $('#dg').datagrid('reload');
+                        $('#dgTC').datagrid('reload');
                     }else{
                         $ .messager.show ({
                             title: 'Error',

@@ -10,8 +10,12 @@ $response = array(
 if(!empty($_REQUEST['maTram'])){ 
     $maTram = strval($_REQUEST['maTram']);  
      
+<<<<<<< HEAD
     $sql = "call deleteTram('$maTram')"; 
 
+=======
+    $sql = "call deleteTram('$maTram')";
+>>>>>>> 6e57c6acec7a3033349d6043774fc4477340da01
     $delete = mysqli_query($con,$sql); 
      
     if($delete){ 

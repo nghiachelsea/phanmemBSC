@@ -20,7 +20,7 @@ if(!empty($_REQUEST['maND']) && !empty($_REQUEST['maDonvi']) && !empty( $_REQUES
         $maND = strval($_REQUEST['maND']); 
           
          
-        $sql = "UPDATE nguoidung SET maDonvi='$maDonvi', tenND='$tenND', taiKhoan='$taiKhoan', matKhau='$matKhau', loaiND='$loaiND' WHERE maND = '$maND'"; 
+        $sql = "call editNguoidung('$maND,'$maDonvi','$tenND','$taiKhoan','$matKhau','$loaiND')"; 
         $update = mysqli_query($con, $sql); 
          
         if($update){ 

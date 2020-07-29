@@ -10,7 +10,7 @@ $response = array(
 if(!empty($_REQUEST['maKyphieu'])){ 
     $maKyphieu = strval($_REQUEST['maKyphieu']);  
      
-    $sql = "DELETE FROM kyphieu WHERE maKyphieu = '$maKyphieu'"; 
+    $sql = "call deleteKyphieu('$maKyphieu')"; 
     $delete = mysqli_query($con,$sql); 
      
     if($delete){ 
