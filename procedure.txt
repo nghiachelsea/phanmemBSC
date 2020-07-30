@@ -96,6 +96,7 @@ BEGIN
 	INSERT INTO nguoidung (maND,maDonvi,tenND,taiKhoan, matKhau, loaiND) 
 	VALUES (ma_ND, ma_Donvi, ten_ND, tai_Khoan, mat_Khau, loai_ND);
 END
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `editNguoiDung`(
 	IN ma_ND VARCHAR(10), 
 	IN ma_Donvi VARCHAR(10), 
@@ -120,4 +121,73 @@ BEGIN
 	
     delete FROM nguoidung where maND=ma_ND;
 
+END
+
+
+//Validation
+CREATE DEFINER=`root`@`localhost` PROCEDURE `validation`(
+	in tk varchar(10),
+    in mk varchar(100)
+)
+BEGIN
+	select * from nguoidung where taiKhoan = tk AND matKhau = mk;
+END
+
+//Update pass
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updateND`(
+	in ma varchar(10),
+    in mk varchar(100)
+)
+BEGIN
+	UPDATE nguoidung SET  matKhau = mk WHERE maND = ma;
+END
+
+/add tieu chi
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addTieuchi`(
+	in maTC int(11),
+	in maTNTTVT varchar(50),
+	in maTNTTDHTT varchar(50),
+	in tenTC varchar(255),
+	in chitietTC varchar(255),
+	in diemtrucnTTVT float,
+	in diemtruttTTVT float,
+	in diemtrucnTTDHTT float,
+	in diemtruttTTDHTT float
+)
+BEGIN
+	INSERT INTO tieuchi(maTieuchi, maTN_TTVT, maTN_TTDHTT, tenTieuchi, chitietTieuchi, 
+    mucdiemtrucnTTVT, mucdiemtruttTTVT, mucdiemtrucnTTDHTT, mucdiemtruttTTDHTT) 
+    VALUES (maTC, maTNTTVT, maTNTTDHTT,tenTC, chitietTC, diemtrucnTTVT, diemtruttTTVT, diemtrucnTTDHTT, diemtruttTTDHTT);
+
+END
+
+//delete tieuchi
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteTieuchi`(
+	in maTC int(11)
+)
+BEGIN
+		DELETE FROM tieuchi WHERE maTieuchi = maTC;
+END
+
+
+//edit tieu chi
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `editTieuchi`(
+	in maTC int(11),
+	in maTNTTVT varchar(50),
+	in maTNTTDHTT varchar(50),
+	in tenTC varchar(255),
+	in chitietTC varchar(255),
+	in diemtrucnTTVT float,
+	in diemtruttTTVT float,
+	in diemtrucnTTDHTT float,
+	in diemtruttTTDHTT float
+)
+BEGIN
+	UPDATE tieuchi SET maTN_TTVT= maTNTTVT, maTN_TTDHTT= maTNTTDHTT, 
+    tenTieuchi=tenTC, chitietTieuchi=chitietTC,
+    mucdiemtrucnTTVT=diemtrucnTTVT,mucdiemtruttTTVT=mucdiemtruttTTVT,
+    mucdiemtrucnTTDHTT=diemtrucnTTDHTT, mucdiemtruttTTDHTT=diemtruttTTDHTT
+    WHERE maTieuchi = maTC;
 END
