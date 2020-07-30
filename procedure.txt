@@ -200,3 +200,56 @@ BEGIN
     WHERE maTieuchi = maTC;
 END
 
+
+//add kphieu
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addKyphieu`(
+  in idKP varchar(10),
+  in  idND varchar(10) ,
+  in nameKP varchar(100),
+  in startDate date,
+  in endDate date,
+  in months int(11),
+  in note varchar(100))
+BEGIN
+  INSERT INTO kyphieu(maKyphieu,maND,tenKyphieu,ngayBatdau, ngayKetthuc, thang, ghichu)
+  VALUES (idKP, idND, nameKP, startDate, endDate, months, note);
+END
+
+//edit kphieu
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `editKyphieu`(
+  in idKP varchar(10),
+  in  idND varchar(10) ,
+  in nameKP varchar(100),
+  in startDate date,
+  in endDate date,
+  in months int(11),
+  in note varchar(100)
+)
+BEGIN
+UPDATE kyphieu SET maND=idND, tenKyphieu=nameKP, ngayBatdau=startDate, 
+ngayKetthuc=endDate, thang=months,ghichu=note WHERE maKyphieu = idKP;
+
+END
+
+// delete kphieu
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteKyphieu`(
+IN idKP varchar(10)
+)
+BEGIN
+DELETE FROM kyphieu WHERE maKyphieu = idKP;
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
