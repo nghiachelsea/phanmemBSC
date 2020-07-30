@@ -43,42 +43,58 @@
     </div>
 </div>
     
-    <div id="dlgTC" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlgTC-buttons'">
-        <form id="fmTC" method="post" novalidate style="margin:0;padding:20px 50px">
+    <div id="dlgTC" class="easyui-dialog" style="width:600px; height: 95%" data-options="closed:true,modal:true,border:'thin',buttons:'#dlgTC-buttons'">
+        <form id="fmTC" method="post" novalidate style="margin:0;padding:10px 50px">
             <h3>Nhập thông tin tiêu chí</h3>
-            <div style="margin-bottom:20px">
+            <div class="easyui-layout" data-options="fit:true" style="height: 32%" >
+            <div data-options="region:'west', split:false" style = "
+            height:90%;
+            width:50%;
+            inline;
+            border-width: 0px;
+            text-align:center; 
+            vertical-align:middle;">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mã tiêu chí',labelPosition:'top' ,prompt:'maTieuchi', height:60" style="width: 100%" id="maTieuchi" name="maTieuchi">
             </div>
-            <div style="margin-bottom:20px">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mã TN TTVT',labelPosition:'top' ,prompt:'maTrachnhiemTTVT', height:60" style="width: 100%" id="maTN_TTVT" name="maTN_TTVT">
             </div>
-            <div style="margin-bottom:20px">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mã TN TTDHTT',labelPosition:'top' ,prompt:'maTrachnhiemTTDHTT', height:60" style="width: 100%" id="maTN_TTDHTT" name="maTN_TTDHTT">
             </div>
-            <div style="margin-bottom:20px">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Tên tiêu chí',labelPosition:'top' ,prompt:'tenTieuchi', height:60" style="width: 100%" id="tenTieuchi" name="tenTieuchi">
             </div>
-            <div style="margin-bottom:20px">
+            <div >
                 <input type="text" class="easyui-textbox" data-options="label:'Chi tiết tiêu chí',labelPosition:'top' ,prompt:'chitietTieuchi', height:60" style="width: 100%" id="chitietTieuchi" name="chitietTieuchi">
             </div>
-            <div style="margin-bottom:20px">
+        </div>
+        <div data-options= "region:'center', split: false" style="border-width: 0px; padding-left: 20px">
+            
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mức điểm CN TTVT',labelPosition:'top' ,prompt:'mucdiemcnTTVT', height:60" style="width: 100%" id="mucdiemtrucnTTVT" name="mucdiemtrucnTTVT">
             </div>
-            <div style="margin-bottom:20px">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mức điểm TT TTVT',labelPosition:'top' ,prompt:'mucdiemttTTVT', height:60" style="width: 100%" id="mucdiemtruttTTVT" name="mucdiemtruttTTVT">
             </div>
-            <div style="margin-bottom:20px">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mức điểm CN TTDHTT',labelPosition:'top' ,prompt:'mucdiemcnTTDHTT', height:60" style="width: 100%" id="mucdiemtrucnTTDHTT" name="mucdiemtrucnTTDHTT">
             </div>
-            <div style="margin-bottom:20px">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mức điểm TT TTDHTT',labelPosition:'top' ,prompt:'mucdiemttTTDHTT', height:60" style="width: 100%" id="mucdiemtruttTTDHTT" name="mucdiemtruttTTDHTT">
-            </div>
-        </form>
+            </div> 
+        </div>
+        </div>
+    </form>
     </div>
     <div id="dlgTC-buttons">
         <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveTC()" style="width:90px">Save</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlgTC').dialog('close')" style="width:90px">Cancel</a>
     </div>
+
+
+
    <script type="text/javascript">
 function doSearch() {
     $('#dgTC').datagrid('load', {

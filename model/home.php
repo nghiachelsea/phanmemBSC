@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['maND'])){
+    header('location:login/login.php');
+  }
+  
+?>
+
+
 
 <!DOCTYPE>
 <!-- // To Vu Ca - B1606870 -->
@@ -17,7 +26,7 @@
 </head>
 <body>
 
-  <div id="cc" class="easyui-layout" style="width:100%;height:5.5%;">
+  <div id="cc" class="easyui-layout" style="width:100%;height:6%;">
 
     <div data-options="region:'east',split:false" style="width:100px; padding-left:  36px ; border-width: 0px">
         <a id="btn" href = "logout.php" class="easyui-linkbutton" style="padding:10px data-options="iconCls:'icon-back', size: small " ">
