@@ -132,6 +132,14 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `validation`(
 BEGIN
 	select * from nguoidung where taiKhoan = tk AND matKhau = mk;
 END
+//pass
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pass`(
+	in tk varchar(10),
+    in mk varchar(100)
+)
+BEGIN
+	select * from nguoidung where  taiKhoan = tk and matKhau = 'admin';
+END
 
 //Update pass
 CREATE DEFINER=`root`@`localhost` PROCEDURE `updateND`(
@@ -191,3 +199,4 @@ BEGIN
     mucdiemtrucnTTDHTT=diemtrucnTTDHTT, mucdiemtruttTTDHTT=diemtruttTTDHTT
     WHERE maTieuchi = maTC;
 END
+
