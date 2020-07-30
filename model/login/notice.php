@@ -20,7 +20,7 @@
 	   </a>	
 		</div>
 		<div id="bb">
-			<a href="changePass.php" class="easyui-linkbutton" data-options= "iconCls:'icon-ok'">YES</a>
+			<a href="changepass.php" class="easyui-linkbutton" data-options= "iconCls:'icon-ok'">YES</a>
 			<a href="../home.php" class="easyui-linkbutton" data-options= "iconCls:'icon-cancel'">NO</a>
 	</div>
     
