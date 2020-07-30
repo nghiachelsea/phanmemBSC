@@ -10,7 +10,7 @@ $response = array(
 if(!empty($_REQUEST['maND'])){ 
     $maND = strval($_REQUEST['maND']);  
      
-    $sql = "call deleteTieuchi('$maTieuchi')";
+    $sql = "call deleteNguoiDung('$maND')";
     $delete = mysqli_query($con,$sql); 
      
     if($delete){ 

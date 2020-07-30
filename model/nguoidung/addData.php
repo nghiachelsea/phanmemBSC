@@ -14,7 +14,7 @@ if(!empty($_REQUEST['maND']) && !empty($_REQUEST['maDonvi']) && !empty($_REQUEST
 	$matKhau = $_REQUEST['matKhau'];
 	$loaiND = $_REQUEST['loaiND'];
 	
-    $sql = "CALL addNguoidung('$maND','$maDonvi','$tenND','$taiKhoan','$matKhau','$loaiND')"; 
+    $sql = "CALL addNguoiDung('$maND','$maDonvi','$tenND','$taiKhoan','$matKhau','$loaiND')"; 
     $insert = mysqli_query($con,$sql);
      
     if($insert){ 

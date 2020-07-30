@@ -1,0 +1,123 @@
+Bảng đơn vị
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addDonvi`(
+	IN maDv VARCHAR(10), 
+	IN tenDv VARCHAR(100), 
+	IN ten_Viettat VARCHAR(20), 
+	IN loaiDv VARCHAR(100), 
+	IN trangthaiDv VARCHAR(100))
+BEGIN
+	INSERT INTO donvi (maDonvi,tenDonvi,tenViettat,loaiDonvi, trangthaiDonvi) 
+	VALUES (maDv, tenDv, ten_Viettat, loaiDv, trangthaiDv);
+END
+
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `editDonvi`(
+	IN maDv VARCHAR(10), 
+	IN tenDv VARCHAR(100), 
+	IN ten_Viettat VARCHAR(20), 
+	IN loaiDv VARCHAR(100), 
+	IN trangthaiDv VARCHAR(100))
+BEGIN
+	update donvi set tenDonvi=tenDv, tenViettat=ten_Viettat, loaiDonvi=loaiDv, trangthaiDonvi=trangthaiDv WHERE maDonvi = maDv ;
+END
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteDonvi`(
+	IN maDv VARCHAR(10)
+	)
+BEGIN
+	delete FROM donvi where maDonvi=maDv;
+END
+
+
+Bảng Trạm
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addTram`(
+	IN ma_Tram VARCHAR(50), 
+	IN ma_Donvi VARCHAR(10), 
+	IN ma_Quanli VARCHAR(10), 
+	IN ma_Giamsat VARCHAR(10), 
+	IN ten_Tram VARCHAR(100),
+    IN diachi_Tram VARCHAR(100),
+    IN trangthai_Tram VARCHAR(100),
+    In toado_X FLOAT,
+    IN toado_Y FLOAT
+    )
+BEGIN
+	INSERT INTO tram (maTram,maDonvi,maQuanli,maGiamsat,tenTram,diachiTram,trangthaiTram,toadoX,toadoY) 
+	VALUES (ma_Tram, ma_Donvi, ma_Quanli, ma_Giamsat, ten_Tram, diachi_Tram, trangthai_Tram, toado_X, toado_y);
+END
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `editTram`(
+	IN ma_Tram VARCHAR(50), 
+	IN ma_Donvi VARCHAR(10), 
+	IN ma_Quanli VARCHAR(10), 
+	IN ma_Giamsat VARCHAR(10), 
+	IN ten_Tram VARCHAR(100),
+    IN diachi_Tram VARCHAR(100),
+    IN trangThai_Tram VARCHAR(100),
+    In toado_X FLOAT,
+    IN toado_Y FLOAT
+    )
+BEGIN
+	update tram set maDonvi=ma_Donvi, maQuanli=ma_Quanli, maGiamsat=ma_Giamsat, tenTram=ten_Tram, diachiTram=diachi_Tram, trangthaiTram=trangthai_Tram, toadoX=toado_X, toadoY=toado_Y WHERE maTram = ma_Tram ;
+END
+
+
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteTram`(
+	in idTram varchar(50)
+	)
+BEGIN
+	
+    DELETE FROM tram where maTram = idTram;
+
+END
+
+Bảng người dùng
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addNguoiDung`(
+	IN ma_ND VARCHAR(10), 
+	IN ma_Donvi VARCHAR(10), 
+	IN ten_ND VARCHAR(45), 
+	IN tai_Khoan VARCHAR(20), 
+	IN mat_Khau VARCHAR(100),
+    IN loai_ND INT(11)
+)
+BEGIN
+	INSERT INTO nguoidung (maND,maDonvi,tenND,taiKhoan, matKhau, loaiND) 
+	VALUES (ma_ND, ma_Donvi, ten_ND, tai_Khoan, mat_Khau, loai_ND);
+END
+CREATE DEFINER=`root`@`localhost` PROCEDURE `editNguoiDung`(
+	IN ma_ND VARCHAR(10), 
+	IN ma_Donvi VARCHAR(10), 
+	IN ten_ND VARCHAR(45), 
+	IN tai_Khoan VARCHAR(20), 
+	IN mat_Khau VARCHAR(100),
+    IN loai_ND INT(11)
+)
+BEGIN
+		update nguoidung set maND=ma_ND, maDonvi=ma_Donvi, tenND=ten_ND, taiKhoan=tai_Khoan, matKhau=mat_Khau, loaiND=loai_ND
+        WHERE maND = ma_ND ;
+END
+
+
+
+
+
+	CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteNguoiDung`(
+	IN ma_ND VARCHAR(10)
+)
+BEGIN
+	
+    delete FROM nguoidung where maND=ma_ND;
+
+END
