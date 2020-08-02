@@ -39,17 +39,10 @@
     </div>
 </div>
     
-<<<<<<< HEAD
     <div id="dlg_nd" class="easyui-dialog" style="width:600px; height: 80%" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg_nd-buttons'">
         <form id="fm_nd" method="post" novalidate style="margin:0;padding:10px 50px">
             <h3>Nhập thông tin người dùng</h3>
             <div class="easyui-layout" data-options="fit:true" style="height: 18%" >
-=======
-    <div id="dlg_nd" class="easyui-dialog" style="width:50%; height:70%" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg_nd-buttons'">
-        <form id="fm_nd" method="post" novalidate style="margin:0;padding:10px 50px">
-            <h3>Nhập thông tin người dùng</h3>
-            <div class="easyui-layout" data-options="fit:true" style="height: 32%" >
->>>>>>> 8b0bfd66c23bb6ec51dc5e53f6788be2222316c5
             <div data-options="region:'west', split:false" style = "
             height:90%;
             width:50%;
@@ -61,11 +54,7 @@
                 <input type="text" class="easyui-textbox" data-options="label:'Mã Người Dùng',labelPosition:'top' ,prompt:'Mã Người Dùng', height:60" style="width: 100%" id="maND" name="maND">
             </div>
             <div style="margin-bottom:10px">
-<<<<<<< HEAD
                 <input type="text" class="easyui-textbox" data-options="label:'Mã Đơn Vị ',labelPosition:'top' ,prompt:'Mã Đơn Vị ', height:60" style="width: 100%" id="maDonvi" name="maDonvi">
-=======
-                <input type="text" class="easyui-textbox" data-options="label:'Mã Đơn Vị ',labelPosition:'top' ,prompt:'Mã Đơn Vị', height:60" style="width: 100%" id="maDonvi" name="maDonvi">
->>>>>>> 8b0bfd66c23bb6ec51dc5e53f6788be2222316c5
             </div>
             <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Tên Người Dùng',labelPosition:'top' ,prompt:'Tên Người Dùng', height:60" style="width: 100%" id="tenND" name="tenND">
@@ -98,14 +87,14 @@ function doSearch(){
         
 var url;
 function newUser(){
-    $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Thêm Người Dùng');
+    $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
     $('#fm_nd').form('clear');
     url = 'nguoidung/addData.php';
 }
 function editUser(){
     var row = $('#nd').datagrid('getSelected');
     if (row){
-        $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Sửa Thông Tin Người Dùng');
+        $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Sửa tiêu chí');
         $('#fm_nd').form('load',row);
         url = 'nguoidung/editData.php?maND='+row.maND;
     }
