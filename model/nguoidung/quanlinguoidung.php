@@ -39,27 +39,39 @@
     </div>
 </div>
     
-    <div id="dlg_nd" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg_nd-buttons'">
-        <form id="fm_nd" method="post" novalidate style="margin:0;padding:20px 50px">
+    <div id="dlg_nd" class="easyui-dialog" style="width:600px; height:60%" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg_nd-buttons'">
+        <form id="fm_nd" method="post" novalidate style="margin:0;padding:10px 50px">
             <h3>Nhập thông tin người dùng</h3>
-            <div style="margin-bottom:20px">
+            <div class="easyui-layout" data-options="fit:true" style="height: 32%" >
+            <div data-options="region:'west', split:false" style = "
+            height:90%;
+            width:50%;
+            inline;
+            border-width: 0px;
+            text-align:center; 
+            vertical-align:middle;">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mã Người Dùng',labelPosition:'top' ,prompt:'maND', height:60" style="width: 100%" id="maND" name="maND">
             </div>
-            <div style="margin-bottom:20px">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mã Đơn Vị ',labelPosition:'top' ,prompt:'maDonvi', height:60" style="width: 100%" id="maDonvi" name="maDonvi">
             </div>
-            <div style="margin-bottom:20px">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Tên Người Dùng',labelPosition:'top' ,prompt:'tenND', height:60" style="width: 100%" id="tenND" name="tenND">
             </div>
-            <div style="margin-bottom:20px">
+            </div>
+        <div data-options= "region:'center', split: false" style="border-width: 0px; padding-left: 20px">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Tài Khoản',labelPosition:'top' ,prompt:'taiKhoan', height:60" style="width: 100%" id="taiKhoan" name="taiKhoan">
             </div>
-            <div style="margin-bottom:20px">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Mật Khẩu',labelPosition:'top' ,prompt:'matKhau', height:60" style="width: 100%" id="matKhau" name="matKhau">
             </div>
-            <div style="margin-bottom:20px">
+            <div style="margin-bottom:10px">
                 <input type="text" class="easyui-textbox" data-options="label:'Loại Người Dùng',labelPosition:'top' ,prompt:'loaiND', height:60" style="width: 100%" id="loaiND" name="loaiND">
             </div>
+            </div>
+        </div>
         </form>
     </div>
     <div id="dlg_nd-buttons">
