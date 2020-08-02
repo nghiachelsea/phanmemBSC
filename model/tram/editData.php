@@ -21,14 +21,8 @@ if(!empty($_REQUEST['maTram']) && !empty($_REQUEST['maDonvi']) && !empty( $_REQU
      
     if(!empty($_REQUEST['maTram'])){ 
         $maTram = strval($_REQUEST['maTram']); 
-          
-<<<<<<< HEAD
+        $sql = "call editTram('$maTram','$maDonvi','$maQuanli','$maGiamsat','$tenTram','$diachiTram','$trangthaiTram','$toadoX','$toadoY')";          
         
-        $sql = "call editTram('$maTram','$maDonvi','$maQuanli','$maGiamsat','$tenTram','$diachiTram','$trangthaiTram','$toadoX','$toadoY')"; 
-=======
-         
-        $sql = "call editTram('$maTram',$maDonvi','$maQuanli','$maGiamsat','$tenTram','$diachiTram','$trangthaiTram','$toadoX','$toadoY')";
->>>>>>> 6e57c6acec7a3033349d6043774fc4477340da01
         $update = mysqli_query($con, $sql); 
          
         if($update){ 

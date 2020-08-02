@@ -158,7 +158,7 @@ function destroyKP(){
     if (row){
         $.messager.confirm('Confirm','Bạn có chắc chắn muốn xóa kỳ phiếu này?',function(r){
             if (r){
-                $.post('deleteData.php', {maKyphieu:row.maKyphieu}, function(response){
+                $.post('kyphieu/deleteData.php', {maKyphieu:row.maKyphieu}, function(response){
                     if(response.status == 1){
                         $('#dgKP').datagrid('reload');
                     }else{
