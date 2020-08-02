@@ -43,7 +43,7 @@
     </div>
 </div>
     
-    <div id="dlg_tram" class="easyui-dialog" style="width:600px; height: 95%" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg_tram-buttons'">
+    <div id="dlg_tram" class="easyui-dialog" style="width:50%; height: 90%" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg_tram-buttons'">
         <form id="fm_tram" method="post" novalidate style="margin:0;padding:10px 50px">
             <h3>Nhập thông tin trạm</h3>
             <div class="easyui-layout" data-options="fit:true" style="height: 32%" >
@@ -55,34 +55,34 @@
             text-align:center; 
             vertical-align:middle;">
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã Trạm',labelPosition:'top' ,prompt:'maTram', height:60" style="width: 100%" id="maTram" name="maTram">
+                <input type="text" class="easyui-textbox" data-options="label:'Mã Trạm',labelPosition:'top' ,prompt:'Mã Trạm', height:60" style="width: 100%" id="maTram" name="maTram">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã Đơn Vị ',labelPosition:'top' ,prompt:'maDonvi', height:60" style="width: 100%" id="maDonvi" name="maDonvi">
+                <input type="text" class="easyui-textbox" data-options="label:'Mã Đơn Vị ',labelPosition:'top' ,prompt:'Mã Đơn Vị', height:60" style="width: 100%" id="maDonvi" name="maDonvi">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã Quản Lí',labelPosition:'top' ,prompt:'maQuanli', height:60" style="width: 100%" id="maQuanli" name="maQuanli">
+                <input type="text" class="easyui-textbox" data-options="label:'Mã Quản Lí',labelPosition:'top' ,prompt:'Mã Quản lí', height:60" style="width: 100%" id="maQuanli" name="maQuanli">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã Giám Sát',labelPosition:'top' ,prompt:'maGiamsat', height:60" style="width: 100%" id="maGiamsat" name="maGiamsat">
+                <input type="text" class="easyui-textbox" data-options="label:'Mã Giám Sát',labelPosition:'top' ,prompt:'Mã Giám Sát', height:60" style="width: 100%" id="maGiamsat" name="maGiamsat">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Tên Trạm',labelPosition:'top' ,prompt:'tenTram', height:60" style="width: 100%" id="tenTram" name="tenTram">
+                <input type="text" class="easyui-textbox" data-options="label:'Tên Trạm',labelPosition:'top' ,prompt:'Tên Trạm', height:60" style="width: 100%" id="tenTram" name="tenTram">
             </div>
             </div>
         <div data-options= "region:'center', split: false" style="border-width: 0px; padding-left: 20px">
             
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Địa Chỉ Trạm',labelPosition:'top' ,prompt:'diachiTram', height:60" style="width: 100%" id="diachiTram" name="diachiTram">
+                <input type="text" class="easyui-textbox" data-options="label:'Địa Chỉ Trạm',labelPosition:'top' ,prompt:'Địa Chỉ Trạm', height:60" style="width: 100%" id="diachiTram" name="diachiTram">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Trạng Thái Trạm',labelPosition:'top' ,prompt:'trangthaiTram', height:60" style="width: 100%" id="trangthaiTram" name="trangthaiTram">
+                <input type="text" class="easyui-textbox" data-options="label:'Trạng Thái Trạm',labelPosition:'top' ,prompt:'Trạng Thái Trạm', height:60" style="width: 100%" id="trangthaiTram" name="trangthaiTram">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Tọa Độ X',labelPosition:'top' ,prompt:'toadoX', height:60" style="width: 100%" id="toadoX" name="toadoX">
+                <input type="text" class="easyui-textbox" data-options="label:'Tọa Độ X',labelPosition:'top' ,prompt:'Tọa Độ X', height:60" style="width: 100%" id="toadoX" name="toadoX">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Tọa Độ Y',labelPosition:'top' ,prompt:'toadoY', height:60" style="width: 100%" id="toadoY" name="toadoY">
+                <input type="text" class="easyui-textbox" data-options="label:'Tọa Độ Y',labelPosition:'top' ,prompt:'Tọa Độ Y', height:60" style="width: 100%" id="toadoY" name="toadoY">
             </div>
             </div>
         </div>
@@ -101,14 +101,14 @@ function doSearch(){
         
 var url;
 function newTram(){
-    $('#dlg_tram').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
+    $('#dlg_tram').dialog('open').dialog('center').dialog('setTitle','Thêm Trạm');
     $('#fm_tram').form('clear');
     url = 'tram/addData.php';
 }
 function editTram(){
     var row = $('#tram').datagrid('getSelected');
     if (row){
-        $('#dlg_tram').dialog('open').dialog('center').dialog('setTitle','Sửa tiêu chí');
+        $('#dlg_tram').dialog('open').dialog('center').dialog('setTitle','Sửa Trạm');
         $('#fm_tram').form('load',row);
         url = 'tram/editData.php?maTram='+row.maTram;
     }

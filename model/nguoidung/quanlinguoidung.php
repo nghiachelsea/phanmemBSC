@@ -39,7 +39,7 @@
     </div>
 </div>
     
-    <div id="dlg_nd" class="easyui-dialog" style="width:600px; height:60%" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg_nd-buttons'">
+    <div id="dlg_nd" class="easyui-dialog" style="width:50%; height:70%" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg_nd-buttons'">
         <form id="fm_nd" method="post" novalidate style="margin:0;padding:10px 50px">
             <h3>Nhập thông tin người dùng</h3>
             <div class="easyui-layout" data-options="fit:true" style="height: 32%" >
@@ -51,24 +51,24 @@
             text-align:center; 
             vertical-align:middle;">
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã Người Dùng',labelPosition:'top' ,prompt:'maND', height:60" style="width: 100%" id="maND" name="maND">
+                <input type="text" class="easyui-textbox" data-options="label:'Mã Người Dùng',labelPosition:'top' ,prompt:'Mã Người Dùng', height:60" style="width: 100%" id="maND" name="maND">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã Đơn Vị ',labelPosition:'top' ,prompt:'maDonvi', height:60" style="width: 100%" id="maDonvi" name="maDonvi">
+                <input type="text" class="easyui-textbox" data-options="label:'Mã Đơn Vị ',labelPosition:'top' ,prompt:'Mã Đơn Vị', height:60" style="width: 100%" id="maDonvi" name="maDonvi">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Tên Người Dùng',labelPosition:'top' ,prompt:'tenND', height:60" style="width: 100%" id="tenND" name="tenND">
+                <input type="text" class="easyui-textbox" data-options="label:'Tên Người Dùng',labelPosition:'top' ,prompt:'Tên Người Dùng', height:60" style="width: 100%" id="tenND" name="tenND">
             </div>
             </div>
         <div data-options= "region:'center', split: false" style="border-width: 0px; padding-left: 20px">
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Tài Khoản',labelPosition:'top' ,prompt:'taiKhoan', height:60" style="width: 100%" id="taiKhoan" name="taiKhoan">
+                <input type="text" class="easyui-textbox" data-options="label:'Tài Khoản',labelPosition:'top' ,prompt:'Tài Khoản', height:60" style="width: 100%" id="taiKhoan" name="taiKhoan">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mật Khẩu',labelPosition:'top' ,prompt:'matKhau', height:60" style="width: 100%" id="matKhau" name="matKhau">
+                <input type="text" class="easyui-textbox" data-options="label:'Mật Khẩu',labelPosition:'top' ,prompt:'Mật Khẩu', height:60" style="width: 100%" id="matKhau" name="matKhau">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Loại Người Dùng',labelPosition:'top' ,prompt:'loaiND', height:60" style="width: 100%" id="loaiND" name="loaiND">
+                <input type="text" class="easyui-textbox" data-options="label:'Loại Người Dùng',labelPosition:'top' ,prompt:'Loại Người Dùng', height:60" style="width: 100%" id="loaiND" name="loaiND">
             </div>
             </div>
         </div>
@@ -87,14 +87,14 @@ function doSearch(){
         
 var url;
 function newUser(){
-    $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
+    $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Thêm Người Dùng');
     $('#fm_nd').form('clear');
     url = 'nguoidung/addData.php';
 }
 function editUser(){
     var row = $('#nd').datagrid('getSelected');
     if (row){
-        $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Sửa tiêu chí');
+        $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Sửa Thông Tin Người Dùng');
         $('#fm_nd').form('load',row);
         url = 'nguoidung/editData.php?maND='+row.maND;
     }
