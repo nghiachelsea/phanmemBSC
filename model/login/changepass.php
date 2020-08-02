@@ -52,7 +52,7 @@
             if ($result === TRUE) {
                 header('location:../home.php');
             } else {
-              return false;
+              header('location:changepass.php');
             }
         }
         else{
