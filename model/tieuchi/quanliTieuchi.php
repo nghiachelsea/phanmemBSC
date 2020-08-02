@@ -55,34 +55,34 @@
             text-align:center; 
             vertical-align:middle;">
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã tiêu chí',labelPosition:'top' ,prompt:'maTieuchi', height:60" style="width: 100%" id="maTieuchi" name="maTieuchi">
+                <input type="text" class="easyui-textbox" data-options="label:'Mã tiêu chí',labelPosition:'top' ,prompt:'Mã tiêu chí', height:60" style="width: 100%" id="maTieuchi" name="maTieuchi">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã TN TTVT',labelPosition:'top' ,prompt:'maTrachnhiemTTVT', height:60" style="width: 100%" id="maTN_TTVT" name="maTN_TTVT">
+                <input type="text" class="easyui-textbox" data-options="label:'Mã TN TTVT',labelPosition:'top' ,prompt:'Mã TN TTVT', height:60" style="width: 100%" id="maTN_TTVT" name="maTN_TTVT">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã TN TTDHTT',labelPosition:'top' ,prompt:'maTrachnhiemTTDHTT', height:60" style="width: 100%" id="maTN_TTDHTT" name="maTN_TTDHTT">
+                <input type="text" class="easyui-textbox" data-options="label:'Mã TN TTDHTT',labelPosition:'top' ,prompt:'Mã TN TTDHTT', height:60" style="width: 100%" id="maTN_TTDHTT" name="maTN_TTDHTT">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Tên tiêu chí',labelPosition:'top' ,prompt:'tenTieuchi', height:60" style="width: 100%" id="tenTieuchi" name="tenTieuchi">
+                <input type="text" class="easyui-textbox" data-options="label:'Tên tiêu chí',labelPosition:'top' ,prompt:'Tên tiêu chí', height:60" style="width: 100%" id="tenTieuchi" name="tenTieuchi">
             </div>
             <div >
-                <input type="text" class="easyui-textbox" data-options="label:'Chi tiết tiêu chí',labelPosition:'top' ,prompt:'chitietTieuchi', height:60" style="width: 100%" id="chitietTieuchi" name="chitietTieuchi">
+                <input type="text" class="easyui-textbox" data-options="label:'Chi tiết tiêu chí',labelPosition:'top' ,prompt:'Chi tiết tiêu chí', height:60" style="width: 100%" id="chitietTieuchi" name="chitietTieuchi">
             </div>
         </div>
         <div data-options= "region:'center', split: false" style="border-width: 0px; padding-left: 20px">
             
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm CN TTVT',labelPosition:'top' ,prompt:'mucdiemcnTTVT', height:60" style="width: 100%" id="mucdiemtrucnTTVT" name="mucdiemtrucnTTVT">
+                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm CN TTVT',labelPosition:'top' ,prompt:'Mức điểm CN TTVT', height:60" style="width: 100%" id="mucdiemtrucnTTVT" name="mucdiemtrucnTTVT">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm TT TTVT',labelPosition:'top' ,prompt:'mucdiemttTTVT', height:60" style="width: 100%" id="mucdiemtruttTTVT" name="mucdiemtruttTTVT">
+                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm TT TTVT',labelPosition:'top' ,prompt:'Mức điểm TT TTVT', height:60" style="width: 100%" id="mucdiemtruttTTVT" name="mucdiemtruttTTVT">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm CN TTDHTT',labelPosition:'top' ,prompt:'mucdiemcnTTDHTT', height:60" style="width: 100%" id="mucdiemtrucnTTDHTT" name="mucdiemtrucnTTDHTT">
+                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm CN TTDHTT',labelPosition:'top' ,prompt:'Mức điểm CN TTDHTT', height:60" style="width: 100%" id="mucdiemtrucnTTDHTT" name="mucdiemtrucnTTDHTT">
             </div>
             <div style="margin-bottom:10px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm TT TTDHTT',labelPosition:'top' ,prompt:'mucdiemttTTDHTT', height:60" style="width: 100%" id="mucdiemtruttTTDHTT" name="mucdiemtruttTTDHTT">
+                <input type="text" class="easyui-textbox" data-options="label:'Mức điểm TT TTDHTT',labelPosition:'top' ,prompt:'Mức điểm TT TTDHTT', height:60" style="width: 100%" id="mucdiemtruttTTDHTT" name="mucdiemtruttTTDHTT">
             </div> 
         </div>
         </div>

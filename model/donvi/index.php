@@ -41,23 +41,23 @@
     </div>
 </div>
     
-    <div id="dlv" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlv-buttons'">
-        <form id="fr" method="post" novalidate style="margin:0;padding:20px 50px">
+    <div id="dlv" class="easyui-dialog" style="width:600px; height: 95%" data-options="closed:true,modal:true,border:'thin',buttons:'#dlv-buttons'">
+        <form id="fr" method="post" novalidate style="margin:0;padding:10px 50px">
             <h3>Nhập thông tin đơn vị</h3>
-            <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã đơn vị',labelPosition:'top' ,prompt:'maDonvi', height:60" style="width: 100%" id="maDonvi" name="maDonvi">
+            <div style="margin-bottom:10px">
+                <input type="text" class="easyui-textbox" data-options="label:'Mã đơn vị',labelPosition:'top' ,prompt:'Mã đơn vị', height:60" style="width: 100%" id="maDonvi" name="maDonvi">
             </div>
-            <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Tên đơn vị',labelPosition:'top' ,prompt:'tenDonvi', height:60" style="width: 100%" id="tenDonvi" name="tenDonvi">
+            <div style="margin-bottom:10px">
+                <input type="text" class="easyui-textbox" data-options="label:'Tên đơn vị',labelPosition:'top' ,prompt:'Tên đơn vị', height:60" style="width: 100%" id="tenDonvi" name="tenDonvi">
             </div>
-            <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Tên viết tắt',labelPosition:'top' ,prompt:'tenViettat', height:60" style="width: 100%" id="tenViettat" name="tenViettat">
+            <div style="margin-bottom:10px">
+                <input type="text" class="easyui-textbox" data-options="label:'Tên viết tắt',labelPosition:'top' ,prompt:'Tên viết tắt', height:60" style="width: 100%" id="tenViettat" name="tenViettat">
             </div>
-            <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Loại đơn vị',labelPosition:'top' ,prompt:'loaiDonvi', height:60" style="width: 100%" id="loaiDonvi" name="loaiDonvi">
+            <div style="margin-bottom:10px">
+                <input type="text" class="easyui-textbox" data-options="label:'Loại đơn vị',labelPosition:'top' ,prompt:'Loại đơn vị', height:60" style="width: 100%" id="loaiDonvi" name="loaiDonvi">
             </div>
-            <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Trạng thái đơn vị',labelPosition:'top' ,prompt:'trangthaiDonvi', height:60" style="width: 100%" id="trangthaiDonvi" name="trangthaiDonvi">
+            <div style="margin-bottom:10px">
+                <input type="text" class="easyui-textbox" data-options="label:'Trạng thái đơn vị',labelPosition:'top' ,prompt:'Trạng thái đơn vị', height:60" style="width: 100%" id="trangthaiDonvi" name="trangthaiDonvi">
             </div>
         </form>
     </div>

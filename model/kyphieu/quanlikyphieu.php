@@ -42,36 +42,45 @@
     </div>
 </div>
     
-    <div id="dlgKP" class="easyui-dialog" style="width:400px; height: 400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlgKP-buttons'">
-        <form id="fmKP" method="post" novalidate style="margin:0;padding:20px 50px">
+    <div id="dlgKP" class="easyui-dialog" style="width:600px; height: 95%" data-options="closed:true,modal:true,border:'thin',buttons:'#dlgKP-buttons'">
+        <form id="fmKP" method="post" novalidate style="margin:0;padding:10px 50px">
             <h3>Nhập thông tin kỳ phiếu</h3>
-            <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã kỳ phiếu',labelPosition:'top' ,prompt:'maKyphieu', height:60" style="width: 100%" id="maKyphieu" name="maKyphieu">
-            </div>
-            <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Mã người dùng',labelPosition:'top' ,prompt:'maND', height:60" style="width: 100%" id="maND" name="maND">
-            </div>
-            <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Tên kỳ phiếu',labelPosition:'top' ,prompt:'tenKyphieu', height:60" style="width: 100%" id="tenKyphieu" name="tenKyphieu">
-            </div>
-            <div style="margin-bottom:20px">
+             <div class="easyui-layout" data-options="fit:true" style="height: 32%" >
+              <div data-options="region:'west', split:false" style = "
+            height:90%;
+            width:50%;
+            inline;
+            border-width: 0px;
+            text-align:center; 
+            vertical-align:middle;">
+                <div style="margin-bottom:10px">
+                    <input type="text" class="easyui-textbox" data-options="label:'Mã kỳ phiếu',labelPosition:'top' ,prompt:'Mã kỳ phiếu', height:60" style="width: 100%" id="maKyphieu" name="maKyphieu">
+                </div>
+                <div style="margin-bottom:10px">
+                    <input type="text" class="easyui-textbox" data-options="label:'Mã người dùng',labelPosition:'top' ,prompt:'Mã người dùng', height:60" style="width: 100%" id="maND" name="maND">
+                </div>
+                <div style="margin-bottom:10px">
+                    <input type="text" class="easyui-textbox" data-options="label:'Tên kỳ phiếu',labelPosition:'top' ,prompt:'Tên kỳ phiếu', height:60" style="width: 100%" id="tenKyphieu" name="tenKyphieu">
+                </div>
+                <div style="margin-bottom:10px">
 
-                <input type="text" class="easyui-textbox" data-options="label:'Ngày bắt đầu',labelPosition:'top' ,prompt:'ngayBatdau', height:60" style="width: 100%" id="ngayBatdau" name="ngayBatdau">
-            </div>
-            <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Ngày kết thúc',labelPosition:'top' ,prompt:'ngayKetthuc', height:60" style="width: 100%" id="ngayKetthuc" name="ngayKetthuc">
-                <input type="text" class="easyui-datebox" data-options="label:'Ngày bắt đầu',labelPosition:'top' ,formatter:myformatter,parser:myparser,prompt:'ngayBatdau', height:60" style="width: 100%" id="ngayBatdau" name="ngayBatdau">
-            </div>
-            <div style="margin-bottom:20px">
-                <input type="text" class="easyui-datebox" data-options="label:'Ngày kết thúc',labelPosition:'top',formatter:myformatter,parser:myparser ,prompt:'ngayKetthuc', height:60" style="width: 100%" id="ngayKetthuc" name="ngayKetthuc">
+                     <input type="text" class="easyui-datebox" data-options="label:'Ngày bắt đầu',labelPosition:'top' ,formatter:myformatter,parser:myparser,prompt:'Ngày bắt đầu', height:60" style="width: 100%" id="ngayBatdau" name="ngayBatdau">
+                </div>
+                </div>
+                 <div data-options= "region:'center', split: false" style="border-width: 0px; padding-left: 20px">
+         
+                <div style="margin-bottom:10px">
+                    <input type="text" class="easyui-datebox" data-options="label:'Ngày kết thúc',labelPosition:'top',formatter:myformatter,parser:myparser ,prompt:'Ngày kết thúc', height:60" style="width: 100%" id="ngayKetthuc" name="ngayKetthuc">
 
+                </div>
+                <div style="margin-bottom:10px">
+                    <input type="text" class="easyui-textbox" data-options="label:'Tháng',labelPosition:'top' ,prompt:'Tháng', height:60" style="width: 100%" id="thang" name="thang">
+                </div>
+                <div style="margin-bottom:10px">
+                    <input type="text" class="easyui-textbox" data-options="label:'Ghi chú',labelPosition:'top' ,prompt:'Ghi chú', height:60" style="width: 100%" id="ghichu" name="ghichu">
+                </div>
             </div>
-            <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Tháng',labelPosition:'top' ,prompt:'thang', height:60" style="width: 100%" id="thang" name="thang">
-            </div>
-            <div style="margin-bottom:20px">
-                <input type="text" class="easyui-textbox" data-options="label:'Ghi chú',labelPosition:'top' ,prompt:'ghichu', height:60" style="width: 100%" id="ghichu" name="ghichu">
-            </div>
+        </div>
         </form>
     </div>
     <div id="dlgKP-buttons">
