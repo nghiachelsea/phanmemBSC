@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Basic DataGrid - jQuery EasyUI Demo</title>
+    <title>Detail</title>
            <link rel="stylesheet" type="text/css" href="../../lib/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="../../lib/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="../../lib/themes/color.css">
@@ -12,15 +12,24 @@
 
 </head>
 <body>
- 
-<table id="dg">
-     <p> Mã Phiếu: </p>
+   <p> Mã Phiếu: </p>
     <p> Mã Chi Tiết PDG: </p>
     <p> Mã Trạm: </p>
     <p> Người đánh giá: <?php include("getND.php") ?></p>
     <a> Ngày Đánh Giá: </a> <a id="date"></a>
+
+<table id="dg"  >
+  
+    
 </table>
+    <a href="javascript:void(0)" plain = "true" id="save" class="easyui-linkbutton" data-options=" iconCls:'icon-save' " >Lưu đánh giá</a>
+    <a href="#" id="sent" plain="true" class="easyui-linkbutton" data-options="iconCls:'icon-redo', disabled:true">Chuyển cấp trên</a>
+    <a href="javascript:void(0)" plain="true" id="resent"  class="easyui-linkbutton"  data-options="iconCls:'icon-undo' ,disabled:true" >Lấy lại phiếu đã gửi</a>
 <script type="text/javascript">
+    $('#save').click(function(){
+       $('#sent').linkbutton('enable');
+       
+    })
     document.getElementById("date").innerHTML = Date();
     $(function(){
     $('#dg').datagrid({ 
@@ -30,6 +39,7 @@
         rownumbers:true,
         fitColumns:true, 
         nowrap: false,
+
       
         idField:'maTieuchi',
         columns:[[  {field:'tenTieuchi',title:'Tên tiêu thí',width:50}, 

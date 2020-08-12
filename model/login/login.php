@@ -14,7 +14,7 @@
 <body>
 	<?php $error_message = ""; ?>
 	<center>
-		<div class="easyui-window" data-options="top:80, width:550, height:300,cls:'c6', title:'Login Form',iconCls:'icon-logck', maximizable:false, minimizable:false, resizable:false, draggable:false,closable:false,collapsible:false">
+		<div class="easyui-window" data-options="top:80, width:550, height:310,cls:'c6', title:'Login Form',iconCls:'icon-logck', maximizable:false, minimizable:false, resizable:false, draggable:false,closable:false,collapsible:false">
 			
 		
 		<div class="easyui-layout" data-options="fit:true" >
@@ -76,18 +76,42 @@
 
 				$con = mysqli_connect(_HOST_NAME, _USER_NAME,_PASSWORD) or die("Database could not connect.");
 				mysqli_select_db($con,_DB_NAME) or die("Could not select database.");
-			
-				$sqlpass = "call pass('$username', '$password') ";
-				$resultpass = mysqli_query($con,$sqlpass);
-				$numpass = mysqli_num_rows($resultpass);
 				
-			 	if ($numpass > 0){
-			 		header('location:notice.php');
-			 	}else{
-			 		header('location:../home.php');
-			 	}
-			 
-			}
+				$sqlcheckType = "call checkTypeND('$username') ";
+				$resultcheckType = mysqli_query($con,$sqlcheckType);
+				$numcheck = mysqli_num_rows($resultcheckType);
+ 				if ($numcheck > 0){
+
+
+					$sqlpass = "call pass('$username', '$password') ";
+					$resultpass = mysqli_query($con,$sqlpass);
+					$numpass = mysqli_num_rows($resultpass);
+					
+				 	if ($numpass > 0){
+				 		header('location:notice.php');
+				 	}else{
+				 		header('location:../home.php');
+				 	}
+				 
+				}else{
+					$con = mysqli_connect(_HOST_NAME, _USER_NAME,_PASSWORD) or die("Database could not connect.");
+				mysqli_select_db($con,_DB_NAME) or die("Could not select database.");
+				
+					$sqlpass = "call pass('$username', '$password') ";
+					$resultpass = mysqli_query($con,$sqlpass);
+					$numpass = mysqli_num_rows($resultpass);
+					
+				 	if ($numpass > 0){
+				 		header('location:noticeUser.php');
+				 	}else{
+				 		header('location:../phieudanhgia/notice.php');
+				 	}
+
+					
+
+				}
+		}
+
 			else{
 				return false;
 			}

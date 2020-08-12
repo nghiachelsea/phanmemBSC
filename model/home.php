@@ -62,7 +62,7 @@
          <div title="Thống kê" style="padding:10px">
           <div class="easyui-tabs" style="width:'90%';height:490px; ">
             <div  title="Thống kê theo tiêu chí" style="padding:10px" > </div>
-            <div  href = "phieudanhgia/phieudanhgia.php" title="Thống kê theo kỳ đánh giá" style="padding:10px"> </div>
+            <div  href = "ctphieudanhgia/phieudanhgia.php" title="Thống kê theo kỳ đánh giá" style="padding:10px"> </div>
             <div title="Thống kê theo trưởng trạm" style="padding:10px"> </div>
             <div title="Thống kê theo số điểm" style="padding:10px"> </div>
           </div>
