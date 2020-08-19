@@ -22,6 +22,27 @@
   
     
 </table>
+<input type="button" id="btn" value="Xem kết quả"/><br>
+         
+        <script language="javascript">
+            document.getElementById('btn').onclick = function()
+            {
+                // Khai báo tham số
+                var checkbox = document.getElementsByName('ckId');
+                var result = "";
+                 
+                // Lặp qua từng checkbox để lấy giá trị
+                for (var i = 0; i < checkbox.length; i++){
+                    if (checkbox[i].checked === true){
+                        result += ' [' + checkbox[i].value + ']';
+                    }
+                }
+                 
+                // In ra kết quả
+                alert("Các tiêu chí chưa đạt: " + result);
+            };
+        </script>
+
     <a href="javascript:void(0)" plain = "true" id="save" class="easyui-linkbutton" data-options=" iconCls:'icon-save' " >Lưu đánh giá</a>
     <a href="#" id="sent" plain="true" class="easyui-linkbutton" data-options="iconCls:'icon-redo', disabled:true">Chuyển cấp trên</a>
     <a href="javascript:void(0)" plain="true" id="resent"  class="easyui-linkbutton"  data-options="iconCls:'icon-undo' ,disabled:true" >Lấy lại phiếu đã gửi</a>
@@ -39,7 +60,7 @@
         rownumbers:true,
         fitColumns:true, 
         nowrap: false,
-
+        singleSelect: true,
       
         idField:'maTieuchi',
         columns:[[  {field:'tenTieuchi',title:'Tên tiêu thí',width:50}, 
@@ -47,7 +68,11 @@
         {field:'maTieuchi',align: 'center',title:'Đánh giá',width:10,formatter: function(value,row,index){
             return row.tenTieuchi == "ly3" ? '<input type="checkbox" disabled="disabled" name="ckId" />'
             :'<input type="checkbox" name="ckId" value="'+value+'" />';
-        }}
+        }},
+        {field:'action',title:'Action',width:20,align:'center',
+                formatter:function(value,row,index){
+                         var d = '<a href="chitietPDG.php" >Thêm hình ảnh</a>';
+                        return d; }}
         ]],
 
         onLoadSuccess:function(){
@@ -75,7 +100,7 @@
             })
         },
         onSelect:function(rowIndex, rowData){
-            if(rowData.tenTieuchi != "ly3")
+            if(rowData.tenTieuchi == "ly3")
             {
                 $("input[value='"+rowData.maTieuchi+"']").attr("checked",true);
             }
