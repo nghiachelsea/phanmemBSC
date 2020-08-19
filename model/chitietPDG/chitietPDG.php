@@ -13,13 +13,13 @@
 </head>
 <body>
      <p> Người đánh giá: <?php include("getND.php") ?></p>
-   <p> Mã Phiếu: <?php echo $_SESSION['maPhieu']; ?></p>
+   <p> Mã Phiếu: <?php  echo $_SESSION['maPhieu']; ?></p>
     <p> Mã Chi Tiết PDG: </p>
     <p> Mã Trạm:  <?php  echo $_SESSION['maTram']; ?></p></p>
    
     <a> Ngày Đánh Giá: </a> <a id="date"></a>
 
-<table id="dg">
+<table id="dg"  >
   
     
 </table>
