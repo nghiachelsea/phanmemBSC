@@ -21,7 +21,7 @@
 		</div>
 		<div id="bb">
 			<a href="changepassUser.php" class="easyui-linkbutton" data-options= "iconCls:'icon-ok'">YES</a>
-			<a href="../phieudanhgia/notice.php" class="easyui-linkbutton" data-options= "iconCls:'icon-cancel'">NO</a>
+			<a href="../chitietPDG/dashboardCT_PDG.php" class="easyui-linkbutton" data-options= "iconCls:'icon-cancel'">NO</a>
 	</div>
     
 </body>

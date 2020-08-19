@@ -109,7 +109,7 @@ function luuDonvi(){
 function xoaDonvi(){
     var row = $('#dv').datagrid('getSelected');
     if (row){
-        $.messager.confirm('Confirm','Are you sure you want to delete this user?',function(r){
+        $.messager.confirm('Confirm','Bạn có chắc chắn muốn xóa đơn vị này?',function(r){
             if (r){
                 $.post('donvi/deleteData.php', {maDonvi:row.maDonvi}, function(response){
                     if(response.status == 1){

@@ -104,7 +104,7 @@
 				 	if ($numpass > 0){
 				 		header('location:noticeUser.php');
 				 	}else{
-				 		header('location:../phieudanhgia/notice.php');
+				 		header('location:../chitietPDG/dashboardCT_PDG.php');
 				 	}
 
 					

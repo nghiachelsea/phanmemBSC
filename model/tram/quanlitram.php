@@ -17,12 +17,12 @@
 </head>
 <body>
     
-    <center><table id="tram" title="Users Management" class="easyui-datagrid" url="tram/getData.php" toolbar="#toolbarTr" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
+    <center><table id="tram" title="Quản lý nhà trạm" class="easyui-datagrid" url="tram/getData.php" toolbar="#toolbarTr" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
     <thead>
         <tr>
                 <th field="maTram"> Mã Trạm</th>
                 <th field="maDonvi"> Mã Đơn Vị</th>
-                <th field="maQuanli">Mã Quản Lí</th>
+                <th field="maQuanli">Mã Quản Lý</th>
                 <th field="maGiamsat">Mã Giám Sát</th>
                 <th field="tenTram">Tên Trạm</th>
                 <th field="diachiTram">Địa Chỉ Trạm</th>
@@ -138,7 +138,7 @@ function saveTram(){
 function destroyTram(){
     var row = $('#tram').datagrid('getSelected');
     if (row){
-        $.messager.confirm('Confirm','Are you sure you want to delete this user?',function(r){
+        $.messager.confirm('Confirm','Bạn có chắc chắn muốn xóa trạm này?',function(r){
             if (r){
                 $.post('tram/deleteData.php', {maTram:row.maTram}, function(response){
                     if(response.status == 1){

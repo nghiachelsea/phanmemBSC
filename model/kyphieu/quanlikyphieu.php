@@ -115,9 +115,7 @@ function doSearch() {
 var url;
 function newKP() {
 
-    $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm kỳ phiếu');
-    $('#fm').form('clear');
-    url = 'addData.php';
+
     $('#dlgKP').dialog('open').dialog('center').dialog('setTitle','Thêm kỳ phiếu');
     $('#fmKP').form('clear');
     url = 'kyphieu/addData.php';
@@ -125,9 +123,7 @@ function newKP() {
 function  editKP (){
     var row = $('#dgKP').datagrid('getSelected');
     if (row){
-        $('#dlg').dialog('open').dialog('center').dialog('setTitle','Cập nhật kỳ phiếu');
-        $('#fm').form('load',row);
-        url = 'editData.php?maKyphieu='+row.maKyphieu;
+        
         $('#dlgKP').dialog('open').dialog('center').dialog('setTitle','Cập nhật kỳ phiếu');
         $('#fmKP').form('load',row);
         url = 'kyphieu/editData.php?maKyphieu='+row.maKyphieu;

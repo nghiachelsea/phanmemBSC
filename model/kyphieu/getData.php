@@ -9,7 +9,7 @@ mysqli_select_db($con,_DB_NAME) or die("Could not select database.");
 $page = isset($_POST['page']) ? intval($_POST['page']) : 1; 
 $rows = isset($_POST['rows']) ? intval($_POST['rows']) : 10; 
  
-$searchTerm = isset($_POST['term']) ? $con->real_escape_string($_POST['term']) : ''; 
+$searchTerm = isset($_POST['termKP']) ? $con->real_escape_string($_POST['termKP']) : ''; 
  
 $offset = ($page-1)*$rows; 
  

@@ -17,29 +17,31 @@
 </head>
 <body>
     
-    <center><table id="dgP" title="Quản lý phiếu" class="easyui-datagrid" toolbar="#toolbarP" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
+    <center><table id="dgP" title="Quản lý phiếu" class="easyui-datagrid" url="phieudanhgia/getData.php" toolbar="#toolbarP" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%';">
     <thead>
         <tr>
+                 <th field="maPhieu">Mã phiếu</th>
                 <th field="maKyphieu">Mã kỳ phiếu</th>
-                <th field="maPhieu">Mã phiếu</th>
+               
 				<th field="tenPhieu">Tên phiếu</th>
 				<th field="maTram">Mã Trạm</th>
+                <th field="maQuanli">Mã quản lý</th>
+                <th field="maGiamsat">Mã giám sát</th>
                 <th field="maTTVT">Mã đơn vị TTVT</th>
                 <th field="maTTDHTT">Mã đơn vị TTDHTT</th>
-                <th field="maQuanli">Mã quản lí</th>
-                <th field="maGiamsat">Mã giám sát</th>
+                
             </tr>
         </thead>
     </table></center>
     <div id="toolbarP">
     <div id="tbP">
-        <input id="termKP" placeholder="Type keywords...">
+        <input id="termP" placeholder="Type keywords...">
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
     </div>
     <div id="tbP2" style="">
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newKP()"> THÊM PHIẾU</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editKP()">SỬA PHIẾU</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyKP()">XÓA PHIẾU</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newP()"> THÊM PHIẾU</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editP()">SỬA PHIẾU</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyP()">XÓA PHIẾU</a>
     </div>
 </div>
     
@@ -54,87 +56,142 @@
             border-width: 0px;
             text-align:center; 
             vertical-align:middle;">
-                <div style="margin-bottom:10px">
-                    <input type="text" class="easyui-textbox" data-options="label:'Mã kỳ phiếu',labelPosition:'top' ,prompt:'Mã kỳ phiếu', height:60" style="width: 100%" id="maKyphieu" name="maKyphieu">
+                 <div style="padding-top: 10px; text-align: center;">
+                    <input id="maKyphieu" class="easyui-combobox" name="maKyphieu"
+                        data-options="
+                            valueField:'maKyphieu',
+                            textField:'tenKyphieu',
+                            url:'phieudanhgia/adminGetMaKp.php',
+                            label:'Mã kỳ phiếu',
+                            labelPosition:'top',
+                            prompt:'Mã kỳ phiếu',
+                            width:245, 
+                            panelHeight: 'auto'">
                 </div>
                 <div style="margin-bottom:10px">
-                    <input type="text" class="easyui-textbox" data-options="label:'Mã người dùng',labelPosition:'top' ,prompt:'Mã người dùng', height:60" style="width: 100%" id="maND" name="maND">
+                    <input type="text" class="easyui-textbox" data-options="label:'Mã phiếu',labelPosition:'top' ,prompt:'Mã phiếu', height:60" style="width: 100%" id="maPhieu" name="maPhieu">
                 </div>
                 <div style="margin-bottom:10px">
-                    <input type="text" class="easyui-textbox" data-options="label:'Tên kỳ phiếu',labelPosition:'top' ,prompt:'Tên kỳ phiếu', height:60" style="width: 100%" id="tenKyphieu" name="tenKyphieu">
+                    <input type="text" class="easyui-textbox" data-options="label:'Tên phiếu',labelPosition:'top' ,prompt:'Tên phiếu', height:60" style="width: 100%" id="tenPhieu" name="tenPhieu">
                 </div>
-                <div style="margin-bottom:10px">
-
-                     <input type="text" class="easyui-datebox" data-options="label:'Ngày bắt đầu',labelPosition:'top' ,formatter:myformatter,parser:myparser,prompt:'Ngày bắt đầu', height:60" style="width: 100%" id="ngayBatdau" name="ngayBatdau">
+                <div style="padding-top: 10px; text-align: center;">
+                    <input id="maTram" class="easyui-combobox" name="maTram"
+                        data-options="
+                            valueField:'maTram',
+                            textField:'tenTram',
+                            url:'phieudanhgia/adminGetTram.php',
+                            label:'Mã trạm',
+                            labelPosition:'top',
+                            prompt:'Mã Trạm',
+                            width:245, 
+                            panelHeight: 'auto',
+                                
+                            onSelect: function (rec) {
+                            var url = 'phieudanhgia/adminGetMaQl.php?maTram='+rec.maTram;
+                            $('#maQuanli').combobox('reload', url);
+                        }">
                 </div>
                 </div>
                  <div data-options= "region:'center', split: false" style="border-width: 0px; padding-left: 20px">
-         
-                <div style="margin-bottom:10px">
-                    <input type="text" class="easyui-datebox" data-options="label:'Ngày kết thúc',labelPosition:'top',formatter:myformatter,parser:myparser ,prompt:'Ngày kết thúc', height:60" style="width: 100%" id="ngayKetthuc" name="ngayKetthuc">
+                 <div style="padding-top: 10px; text-align: center;">
+                    <input id="maQuanli" class="easyui-combobox" name="maQuanli"
+                data-options="
+                    valueField:'maQuanli',
+                    textField:'tenQuanli',
+                    label:'Mã quản lí',
+                    labelPosition:'top',
+                    prompt:'Mã quản lí',
+                    width:230, 
+                    panelHeight: 'auto',
+                     onSelect: function (rec) {
+                            var url = 'phieudanhgia/adminGetMaGs.php?maQuanli='+rec.maQuanli;
+                            $('#maGiamsat').combobox('reload', url);
+                            var url1 = 'phieudanhgia/adminGetMaTTVT.php?maQuanli='+rec.maQuanli;
+                            $('#maTTVT').combobox('reload', url1);
 
+                        }
+                    ">
                 </div>
-                <div style="margin-bottom:10px">
-                    <input type="text" class="easyui-textbox" data-options="label:'Tháng',labelPosition:'top' ,prompt:'Tháng', height:60" style="width: 100%" id="thang" name="thang">
+                <div style="padding-top: 10px; text-align: center;">
+                    <input id="maGiamsat" class="easyui-combobox" name="maGiamsat"
+                data-options="
+                    valueField:'maGiamsat',
+                    textField:'tenGiamsat',
+                    label:'Mã giám sát',
+                    labelPosition:'top',
+                    prompt:'Mã giám sát',
+                    width:230,
+                    panelHeight: 'auto',
+                      onSelect: function (rec) {
+                            var url = 'phieudanhgia/adminGetMaTTDHTT.php?maGiamsat='+rec.maGiamsat;
+                            $('#maTTDHTT').combobox('reload', url);
+
+                        }">
                 </div>
-                <div style="margin-bottom:10px">
-                    <input type="text" class="easyui-textbox" data-options="label:'Ghi chú',labelPosition:'top' ,prompt:'Ghi chú', height:60" style="width: 100%" id="ghichu" name="ghichu">
+                   <div style="padding-top: 10px; text-align: center;">
+                    <input id="maTTVT" class="easyui-combobox" name="maTTVT"
+                data-options="
+                    valueField:'maTTVT',
+                    textField:'tenTTVT',
+                    label:'Mã đơn vị TTVT',
+                    labelPosition:'top',    
+                    prompt:'Mã đơn vị TTVT',
+                    width:230,
+                    panelHeight: 'auto'">
                 </div>
+                
+                     <div style="padding-top: 10px; text-align: center;">
+                    <input id="maTTDHTT" class="easyui-combobox" name="maTTDHTT"
+                data-options="
+                    valueField:'maTTDHTT',
+                    textField:'tenTTDHTT',
+                    label:'Mã đơn vị TTDHTT',
+                    labelPosition:'top',
+                    prompt:'Mã đơn vị TTDHTT',
+                    width:230,
+                    panelHeight: 'auto'"
+                    >
+                </div>
+              
+               
+
             </div>
         </div>
         </form>
     </div>
     <div id="dlgP-buttons">
-        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveKP()" style="width:90px">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveP()" style="width:90px">Save</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlgP').dialog('close')" style="width:90px">Cancel</a>
     </div>
    <script type="text/javascript">
-function myformatter(date){
-            var y = date.getFullYear();
-            var m = date.getMonth()+1;
-            var d = date.getDate();
-            return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
-        }
-        function myparser(s){
-            if (!s) return new Date();
-            var ss = (s.split('-'));
-            var y = parseInt(ss[0],10);
-            var m = parseInt(ss[1],10);
-            var d = parseInt(ss[2],10);
-            if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
-                return new Date(y,m-1,d);
-            } else {
-                return new Date();
-            }
-        }
+
+
+
+
+
 function doSearch() {
     $('#dgP').datagrid('load', {
-        termKP: $('#termKP').val()
+        termP: $('#termP').val()
     });
 }
         
 var url;
-function newKP() {
+function newP() {
 
-    $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm kỳ phiếu');
-    $('#fm').form('clear');
-    url = 'addData.php';
     $('#dlgP').dialog('open').dialog('center').dialog('setTitle','Thêm kỳ phiếu');
     $('#fmP').form('clear');
-    url = 'kyphieu/addData.php';
+    url = 'phieudanhgia/addData.php';
 }
-function  editKP (){
+function  editP (){
     var row = $('#dgP').datagrid('getSelected');
     if (row){
-        $('#dlg').dialog('open').dialog('center').dialog('setTitle','Cập nhật kỳ phiếu');
-        $('#fm').form('load',row);
-        url = 'editData.php?maKyphieu='+row.maKyphieu;
+       
         $('#dlgP').dialog('open').dialog('center').dialog('setTitle','Cập nhật kỳ phiếu');
         $('#fmP').form('load',row);
-        url = 'kyphieu/editData.php?maKyphieu='+row.maKyphieu;
+        url = 'phieudanhgia/editData.php?maPhieu='+row.maPhieu;
     }
 }
-function  saveKP () {
+function  saveP () {
     $('#fmP').form('submit',{
         url: url,
         onSubmit: function(){
@@ -154,12 +211,12 @@ function  saveKP () {
         }
     });
 }
-function destroyKP(){
+function destroyP(){
     var row = $('#dgP').datagrid('getSelected');
     if (row){
-        $.messager.confirm('Confirm','Bạn có chắc chắn muốn xóa kỳ phiếu này?',function(r){
+        $.messager.confirm('Confirm','Bạn có chắc chắn muốn xóa phiếu này?',function(r){
             if (r){
-                $.post('kyphieu/deleteData.php', {maKyphieu:row.maKyphieu}, function(response){
+                $.post('phieudanhgia/deleteData.php', {maPhieu:row.maPhieu}, function(response){
                     if(response.status == 1){
                         $('#dgP').datagrid('reload');
                     }else{

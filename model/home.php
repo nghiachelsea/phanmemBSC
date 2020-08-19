@@ -56,6 +56,7 @@
             <div href = "tram/quanlitram.php" title="Quản lý nhà trạm" style="padding:10px"> </div>
             
             <div href = "kyphieu/quanlikyphieu.php" title="Quản lý kì phiếu" style="padding:10px"> </div>
+            <div href = "phieudanhgia/phieuUI.php" title="Quản lý phiếu" style="padding:10px"> </div>
             
           </div>
         </div>

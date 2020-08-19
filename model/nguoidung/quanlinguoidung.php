@@ -12,7 +12,7 @@
     <script type="text/javascript" src="../../lib/jquery.easyui.min.js"></script>
 </head>
 <body>
-    <center><table id="nd" title="Users Management" class="easyui-datagrid" url="nguoidung/getData.php" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%'">
+    <center><table id="nd" title="Quản lí người dùng" class="easyui-datagrid" url="nguoidung/getData.php" toolbar="#toolbarND" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true" style="width:'100%';height:'90%'">
     <thead>
         <tr>
                 <th field="maND"> Mã Người Dùng</th>
@@ -26,9 +26,6 @@
     </table></center>
     <div id="toolbarND">
     <div id="tb">
-        <input id="term" placeholder="Type keywords...">
-    <div id="toolbar">
-    <div id="tb_nd">
         <input id="term_nd" placeholder="Type keywords...">
         <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
     </div>
@@ -122,7 +119,7 @@ function saveUser(){
 function destroyUser(){
     var row = $('#nd').datagrid('getSelected');
     if (row){
-        $.messager.confirm('Confirm','Are you sure you want to delete this user?',function(r){
+        $.messager.confirm('Confirm','Bạn có chắc chắn muốn xóa người dùng này?',function(r){
             if (r){
                 $.post('nguoidung/deleteData.php', {maND:row.maND}, function(response){
                     if(response.status == 1){
