@@ -8,9 +8,7 @@
 		mysqli_query($db, $sql);
 		    echo '<script>alert("Thêm thành công !");</script>';
             echo '<script>location.href = "http://localhost/phanmemBSC/phanmemBSC/model/chitietPDG/ctphieudanhgia.php";</script>';
-            
-		
-    }
+        }
 
 ?>
 <!DOCTYPE html>

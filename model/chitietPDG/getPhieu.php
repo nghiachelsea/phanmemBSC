@@ -30,6 +30,11 @@ $result1 = mysqli_query($con,$sql1);
  
 $phieu = array(); 
 while($row = mysqli_fetch_assoc($result1)){ 
+
+
+	$_SESSION['maPhieu'] = $row['maPhieu'];
+	$_SESSION['maTram'] = $row['maTram'];
+	
     array_push($phieu, $row); 
 } 
 $response["rows"] = $phieu; 
