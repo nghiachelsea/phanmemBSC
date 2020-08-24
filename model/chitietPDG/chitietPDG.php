@@ -14,7 +14,6 @@
 <body>
      <p> Người đánh giá: <?php include("getND.php") ?></p>
    <p> Mã Phiếu: <?php  echo $_SESSION['maPhieu']; ?></p>
-    <p> Mã Chi Tiết PDG: 1</p>
     <p> Mã Trạm:  <?php  echo $_SESSION['maTram']; ?></p></p>
    
     <a> Ngày Đánh Giá: </a> <a id="date"></a>
@@ -77,7 +76,7 @@
     $('#dg').datagrid({ 
         title:'Bảng Đánh Giá Các Tiêu Chí',   
         url:'getData.php',
-        pagination:true,
+        pagination:false,
         rownumbers:true,
         fitColumns:true, 
         nowrap: false,
@@ -134,12 +133,12 @@
     });   
 })  
         function  editP(){
-            // var row = $('#dg').datagrid('getSelected');
-            // if (row){
+             var row = $('#dg').datagrid('getSelected');
+            if (row){
                 $('#dlgP').dialog('open').dialog('center').dialog('setTitle','Thêm ghi chú');
                 $('#fmP').form('clear');
-                url = 'chitietPDG/upload.php';
-            // }
+                $maTieuchi= row.tenTieuchi;
+            }
         }
         function savePDG(){
 
@@ -204,16 +203,20 @@
 
     $con = mysqli_connect(_HOST_NAME, _USER_NAME,_PASSWORD) or die("Database could not connect.");
     mysqli_select_db($con,_DB_NAME) or die("Could not select database.");
+
+   
     if(isset($_POST['upload'])) {
+        
         $target = "images/".basename($_FILES['image']['name']);
                  
         
         $image = $_FILES['image']['name'];
         $text = $_POST['text'];
-        $sql = "INSERT INTO hinhanh (image, text) VALUES ('$image', '$text')";
+        $sql = "INSERT INTO hinhanh (maPhieu, image, text) VALUES ('$_SESSION[maPhieu]','$image', '$text')";
         mysqli_query($con, $sql);
        echo  '<script> alert ("Đã thêm ghi chú!"); </script>' ;
            echo '<script>location.href = "chitietPDG.php";</script>';
   
-    }
+    
+}
 ?>
