@@ -169,29 +169,6 @@
 
 
 </script>
-
-<input type="button" id="btn" value="Xem kết quả"/><br>
-         
-        <script language="javascript">
-            document.getElementById('btn').onclick = function()
-            {
-                // Khai báo tham số
-                var checkbox = document.getElementsByName('ckId');
-                var result = "";
-                 
-                // Lặp qua từng checkbox để lấy giá trị
-                for (var i = 0; i < checkbox.length; i++){
-                    if (checkbox[i].checked === true){
-                        result += ' [' + checkbox[i].value + ']';
-                    }
-                }
-
-                
-                
-                // In ra kết quả
-                alert("Các tiêu chí chưa đạt: " + result);
-            };
-        </script>
     <a href="javascript:void(0)" plain = "true" id="save" class="easyui-linkbutton" data-options=" iconCls:'icon-save' " >Lưu đánh giá</a>
     <a href="#" id="sent" plain="true" class="easyui-linkbutton" data-options="iconCls:'icon-redo', disabled:true">Chuyển cấp trên</a>
     <a href="javascript:void(0)" plain="true" id="resent"  class="easyui-linkbutton"  data-options="iconCls:'icon-undo' ,disabled:true" >Lấy lại phiếu đã gửi</a>
