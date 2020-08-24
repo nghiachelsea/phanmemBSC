@@ -59,7 +59,7 @@
     <div data-options="region:'west', split:false" ></div>
      <div data-options= "region:'center', split: false" style="border-width: 0px; padding-left: 86%">
     <div id="tb_CTPDG" style="">
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="savePDG()">Lưu thay đổi</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" style="font-weight: bold" iconCls="icon-ok" plain="true" onclick="savePDG()">Lưu thay đổi</a>
        
     </div>
 </div>
