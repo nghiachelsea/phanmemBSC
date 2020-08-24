@@ -6,13 +6,12 @@
 		$text = $_POST['text'];
 		$sql = "INSERT INTO images (image, text) VALUES ('$image', '$text')";
 		mysqli_query($db, $sql);
-		if(move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-			$msg = "Thành công";
-		} 
-		else{
-			$msg = "Thất bại";
-		}
-	}
+		    echo '<script>alert("Thêm thành công !");</script>';
+            echo '<script>location.href = "http://localhost/phanmemBSC/phanmemBSC/model/chitietPDG/ctphieudanhgia.php";</script>';
+            
+		
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
