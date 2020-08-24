@@ -12,11 +12,12 @@
 
 </head>
 <body>
-     <p> Người đánh giá: <?php include("getND.php") ?></p>
-   <p> Mã Phiếu: <?php  echo $_SESSION['maPhieu']; ?></p>
-    <p> Mã Trạm:  <?php  echo $_SESSION['maTram']; ?></p></p>
+     <a  style="font-weight: bold" > Người đánh giá: </a><a> <?php include("getND.php") ?> </a> </br>
+   <a  style="font-weight: bold" > Mã Phiếu: </a><a> <?php  echo $_SESSION['maPhieu']; str_repeat('&nbsp;', 10);?></a> </br>
+
+    <a style="font-weight: bold" > Mã Trạm:  </a><a>  <?php  echo $_SESSION['maTram']; ?></a> </br>
    
-    <a> Ngày Đánh Giá: </a> <a id="date"></a>
+    <a  style="font-weight: bold" > Ngày Đánh Giá: </a> <a id="date"></a>
 <!-- 
 <div id="toolbarP">
     <div id="tbP2" style="">
