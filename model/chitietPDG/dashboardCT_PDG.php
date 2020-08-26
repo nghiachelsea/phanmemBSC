@@ -12,6 +12,14 @@
     <script type="text/javascript" src="../../lib/jquery.easyui.min.js"></script>
 </head>
 <body>
+    <div id="cc" class="easyui-layout" style="width:100%;height:10%; padding-top: 35px">
+
+    <div data-options="region:'east',split:false" style="width:100px; padding-left:  36px ; border-width: 0px">
+        <a id="btn" href = "../logout.php" class="easyui-linkbutton" style="padding:10px data-options="iconCls:'icon-back', size: small " ">
+              Logout
+          </a>
+    </div>
+  </div>
     <div id="toolbarCTPDG">
         <div id="tbCTPDG">
             <input id="termCTPDG" placeholder="Type keywords...">

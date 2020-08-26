@@ -61,7 +61,7 @@
 		if (!empty($_POST['username']) && !empty($_POST['password'])){
 			$username = $_POST['username'];
 			$password = $_POST['password'];
-			echo $username." | ". $password;
+			
 			$con = mysqli_connect(_HOST_NAME, _USER_NAME,_PASSWORD) or die("Database could not connect.");
 			mysqli_select_db($con,_DB_NAME) or die("Could not select database.");
 			$sql = "call validation('$username', '$password') ";
@@ -81,7 +81,8 @@
 				$resultcheckType = mysqli_query($con,$sqlcheckType);
 				$numcheck = mysqli_num_rows($resultcheckType);
  				if ($numcheck > 0){
-
+	$con = mysqli_connect(_HOST_NAME, _USER_NAME,_PASSWORD) or die("Database could not connect.");
+				mysqli_select_db($con,_DB_NAME) or die("Could not select database.");
 
 					$sqlpass = "call pass('$username', '$password') ";
 					$resultpass = mysqli_query($con,$sqlpass);
@@ -113,7 +114,7 @@
 		}
 
 			else{
-				return false;
+				echo  '<script> alert ("Tài khoản hoặc mật khẩu chưa đúng!"); </script>' ;
 			}
 			# code...
 		}else{

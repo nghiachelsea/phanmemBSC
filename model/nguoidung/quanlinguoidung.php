@@ -84,14 +84,14 @@ function doSearch(){
         
 var url;
 function newUser(){
-    $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Thêm tiêu chí');
+    $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Thêm người dùng');
     $('#fm_nd').form('clear');
     url = 'nguoidung/addData.php';
 }
 function editUser(){
     var row = $('#nd').datagrid('getSelected');
     if (row){
-        $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Sửa tiêu chí');
+        $('#dlg_nd').dialog('open').dialog('center').dialog('setTitle','Sửa thông tin người dùng');
         $('#fm_nd').form('load',row);
         url = 'nguoidung/editData.php?maND='+row.maND;
     }

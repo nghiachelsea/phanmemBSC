@@ -12,6 +12,14 @@
 
 </head>
 <body>
+    <div id="cc" class="easyui-layout" style="width:100%;height:10%;">
+
+    <div data-options="region:'east',split:false" style="width:100px; padding-left:  36px ; border-width: 0px">
+        <a id="btn" href = "dashboardCT_PDG.php" class="easyui-linkbutton" style="padding:10px data-options="iconCls:'icon-back', size: small " ">
+              Back
+          </a>
+    </div>
+  </div>
      <a  style="font-weight: bold" > Người đánh giá: </a><a> <?php include("getND.php") ?> </a> </br>
    <a  style="font-weight: bold" > Mã Phiếu: </a><a> <?php  echo $_SESSION['maPhieu']; str_repeat('&nbsp;', 10);?></a> </br>
 
@@ -24,12 +32,12 @@
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editP()">Thêm Ghi Chú</a>
     </div>
 </div> -->
-<div id="dlgP" class="easyui-dialog" style="width:50%; height: 200%" data-options="closed:true,modal:true,border:'thin',buttons:'#dlgP-buttons'">
+<div id="dlgP" class="easyui-dialog" style="width:50%; height: 255%" data-options="closed:true,modal:true,border:'thin',buttons:'#dlgP-buttons'">
         <form  id="fmP"  method="post"  enctype="multipart/form-data" novalidate style="margin:0;padding:10px 50px">
-            <h3>Nhập thông tiêu chí</h3>
+            <h3>Nhập ghi chú</h3>
             <div class="easyui-layout" data-options="fit:true" style="height: 32%" >
             <div data-options="region:'center', split:false" style = "
-            height:90%;
+            height:40%;
             width:50%;
             inline;
             border-width: 0px;
@@ -41,6 +49,7 @@
                 <div>
                         <input id="file" class="easyui-filebox" name="image" data-options="prompt:'Choose a file...', width:'   200px'">
                 </div>
+                <div>   <br>    </div>
                 <div>
                         <textarea id="text" name="text" cols="40" rows="4" placeholder="Nhập thông tin ghi chú"></textarea>
                 </div>
@@ -53,7 +62,7 @@
     </form>
     </div>
     
-    
+
 <table id="dg"  >
 </table>
   <div id="toolbarCTPDG">
@@ -138,7 +147,7 @@
             if (row){
                 $('#dlgP').dialog('open').dialog('center').dialog('setTitle','Thêm ghi chú');
                 $('#fmP').form('clear');
-                $maTieuchi= row.tenTieuchi;
+                
             }
         }
         function savePDG(){
@@ -148,15 +157,14 @@
                  
                 // Lặp qua từng checkbox để lấy giá trị
                 for (var i = 0; i < checkbox.length; i++){
-                    if (checkbox[i].checked === true){
+                    if (checkbox[i].checked === false){
                         result += ' [' + checkbox[i].value + ']';
-                        <?php
-
-
-                         ?>
+                        
             }
          }
-                 
+                
+
+
                 // In ra kết quả
                 alert("Các tiêu chí chưa đạt: " + result);
             

@@ -37,11 +37,9 @@
   <div id="cc" class="easyui-layout" style="width:100%;height:90%;">
     <div data-options="region:'south'" style="padding:5px; border-width: 0px ">
       <div class="easyui-tabs" style="width:'90%';height:99%;";>
-        <div title="Hồ sơ cá nhân" style="padding:10px">
-          <div title="Đổi mật khẩu" style="padding:10px">
-          
-        </div>
-        </div>
+        <div>   
+          <img src="../lib/images/home.png" width="100%" height="100%">  
+       </div>
         <div title="Quản lý" style="padding:10px">
           <div class="easyui-tabs" style="width:'90%';height:550px">
 

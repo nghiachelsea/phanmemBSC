@@ -6,7 +6,7 @@ include("../config/config.php");
 $con = mysqli_connect(_HOST_NAME, _USER_NAME,_PASSWORD) or die("Database could not connect.");
 mysqli_select_db($con,_DB_NAME) or die("Could not select database.");
 			session_start();
-$maND = strval ($_SESSION[ 'maND' ]);
+
 // get data and store in a json array
 			
 $page = isset($_POST['page']) ? intval($_POST['page']) : 1; 
@@ -25,17 +25,18 @@ $sql = "SELECT COUNT(*) FROM phieudanhgia WHERE $whereSQL";
 $result =  mysqli_query($con,$sql); 
 $row = mysqli_fetch_row($result);
 $response["total"] = $row[0]; 
+$maND = strval ($_SESSION[ 'maND' ]);
 $sql1 = "SELECT maPhieu, tenPhieu, maTram FROM phieudanhgia WHERE  maQuanli = '$maND' ORDER BY maPhieu DESC LIMIT $offset,$rows";
 $result1 = mysqli_query($con,$sql1);
  
 $phieu = array(); 
 while($row = mysqli_fetch_assoc($result1)){ 
 
-
 	$_SESSION['maPhieu'] = $row['maPhieu'];
 	$_SESSION['maTram'] = $row['maTram'];
 	
-    array_push($phieu, $row); 
+     array_push($phieu, $row);
+
 } 
 $response["rows"] = $phieu; 
  
